@@ -12,7 +12,9 @@ export default function PizzaCard() {
             <h5 className="card-title">{pizza.nom}</h5>
             <p className="card-text">{pizza.description}</p>
             <div>
-              <p className="card-prix">à partir de €{pizza.prix}</p>
+              <p className="card-prix">
+                à partir de <span>€{pizza.prix}</span>
+              </p>
               <a href="#">+</a>
             </div>
           </div>

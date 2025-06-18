@@ -1,3 +1,6 @@
+.pizza-container {
+  background-color: #f5f7f9;
+}
 .card {
   width: calc(33.33% - 20px);
   margin-bottom: 20px;
@@ -7,7 +10,10 @@
 }
 
 .card-body {
-  padding: 10px 0;
+  padding: 10px;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .card-title {
@@ -35,18 +41,26 @@
   align-items: center;
   width: 30px;
   height: 30px;
-  background-color: #e31837;
+  background-color: #c8102e;
   color: white;
   text-decoration: none;
   border-radius: 3px;
   float: right;
   font-size: 1.2rem;
   font-weight: bold;
+
+  transition: all 250ms;
+}
+
+.card a:hover {
+  background-color: #bea763;
 }
 
 .card img {
   width: 100%;
-  border-radius: 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: block;
 }
 
 .pizza-container {
