@@ -18,3 +18,6 @@ nav{
 .nav-logo{
     margin-right: 400px;
 }
+.link:hover{
+    opacity: 0.8;
+}
