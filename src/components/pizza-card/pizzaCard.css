@@ -1,0 +1,110 @@
+.pizza-container {
+  background-color: #f5f7f9;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  border: none;
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 320px;
+}
+
+.card-body {
+  padding: 15px;
+  background-color: white;
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  transition: all 500ms;
+  z-index: 2;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+  background-color: white;
+  padding: 0;
+  margin: 0 0 15px 0;
+  display: none;
+}
+
+.card:hover .card-body {
+  transform: translateY(-10px);
+  height: auto;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover .card-text {
+  display: block;
+}
+
+.card-footer {
+  padding: 15px;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.card-prix {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0;
+  line-height: 30px;
+}
+
+.card-prix span {
+  font-weight: bold;
+}
+
+.card a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #e31837;
+  color: white;
+  text-decoration: none;
+  border-radius: 3px;
+  float: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 250ms;
+}
+
+.card a:hover {
+  background-color: #bea763;
+}
+
+.card img {
+  width: 100%;
+  height: 65%;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: block;
+}
