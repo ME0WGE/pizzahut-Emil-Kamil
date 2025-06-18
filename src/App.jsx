@@ -1,10 +1,10 @@
 import "./App.css";
+import PizzaCard from "./components/pizza-card/Pizza-card";
 
 function App() {
   return (
     <>
-      {/* Ready to code! */}
-      {/* Script written by github.com/ME0WGE */}
+      <PizzaCard />
     </>
   );
 }
