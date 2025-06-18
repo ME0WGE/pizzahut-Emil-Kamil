@@ -7,16 +7,16 @@ export default function PizzaCard() {
     <div className="pizza-container">
       {data.map((pizza, index) => (
         <div className="card" key={index}>
-          {<img src={pizza.image} alt={pizza.nom} />}
+          <img src={pizza.image} alt={pizza.nom} />
           <div className="card-body">
             <h5 className="card-title">{pizza.nom}</h5>
             <p className="card-text">{pizza.description}</p>
-            <div>
-              <p className="card-prix">
-                à partir de <span>€{pizza.prix}</span>
-              </p>
-              <a href="#">+</a>
-            </div>
+          </div>
+          <div className="card-footer">
+            <p className="card-prix">
+              à partir de <span>€{pizza.prix}</span>
+            </p>
+            <a href="#">+</a>
           </div>
         </div>
       ))}
