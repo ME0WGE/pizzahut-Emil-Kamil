@@ -1,8 +1,8 @@
 .titre{
     display: flex;
     margin-top: 50px;
-    width: 50%;
-    margin-left: 250px;
+    width: 56%;
+    margin-left: 200px;
 }
 .titre hr{
     flex: 1;
