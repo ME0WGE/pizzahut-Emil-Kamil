@@ -1,5 +1,20 @@
 [
 {
+    "image":"https://cdn-catalog.pizzahut.be/images/be/20250512134948432.png",
+    "nom":"Jalapenos Nachos",
+    "description":"Doritos Nachos, Poulet Kebab, Cheddar, Jalapños, Tomates en dés, Sauce Tomates, Mozzarella",
+    "prix": 20.10,
+    "ingredients":{
+        "sauce":"tomate",
+        "fromages":"mozzarella",
+        "légumes":["Tomates","Jalapenos"],
+        "viandes":["Poulet kebab"]
+
+    }
+    
+
+},
+{
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406163450743.jpg",
     "nom":"Margherita",
     "description":"L'originale pizza de base, avec une sauce tomate et de la mozzarella",
