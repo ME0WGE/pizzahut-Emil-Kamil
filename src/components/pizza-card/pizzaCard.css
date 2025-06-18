@@ -4,10 +4,12 @@
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
+  width: 1000px;
+  margin-left: 180px;
 }
 
 .card {
-  width: calc(33.33% - 20px);
+  width: calc(33% - 60px);
   margin-bottom: 20px;
   border: none;
   position: relative;
@@ -15,9 +17,9 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  height: 320px;
+  height: 280px;
 }
 
 .card-body {
@@ -36,6 +38,8 @@
   font-weight: bold;
   margin-bottom: 5px;
   margin-top: 0;
+  margin-left: -10px;
+  font-weight: 800;
 }
 
 .card-text {
@@ -66,6 +70,18 @@
   left: 0;
   right: 0;
   z-index: 3;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-end;
+  display: flex;
+  gap: 15px;
+}
+.card-footer p {
+  margin: 0;
+}
+.pizza-img{
+  float: left;
+  
 }
 
 .card-prix {
@@ -74,10 +90,18 @@
   font-weight: 500;
   margin-bottom: 0;
   line-height: 30px;
+  color: rgba(0, 0, 0, 0.686);
+}
+.card-prix span{
+  color: black;
 }
 
-.card-prix span {
-  font-weight: bold;
+.card-prix .prix {
+  color: black;
+  font-size: 18px;
+  font-weight: 800;
+  opacity: 1;
+
 }
 
 .card a {
@@ -86,10 +110,10 @@
   align-items: center;
   width: 30px;
   height: 30px;
-  background-color: #e31837;
+  background-color: #C8102E;
   color: white;
   text-decoration: none;
-  border-radius: 3px;
+  border-radius: 7px;
   float: right;
   font-size: 1.2rem;
   font-weight: bold;
