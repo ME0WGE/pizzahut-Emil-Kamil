@@ -1,6 +1,8 @@
 import Navbar from "../components/navbar/Navbar";
+import PizzaCard from "../components/pizza-card/Pizza-card";
 import data from '../data.json'
 export default function Home() {
+
     
 
     return(
@@ -11,9 +13,7 @@ export default function Home() {
                     <div className="titre">
                         <hr /><p>Pizza</p><hr />
                     </div>
-                    <div className="card-container">
-                       
-                    </div>
+                    <PizzaCard />
                 </div>
                 
             </section>
