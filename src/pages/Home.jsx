@@ -1,24 +1,26 @@
+import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
-import data from '../data.json'
-export default function Home() {
-    
+import PizzaCard from "../components/pizza-card/Pizza-card";
 
-    return(
-        <>
-            <Navbar/>
-            <section id="pizza">
-                <div className="container">
-                    <div className="titre">
-                        <hr /><p>Pizza</p><hr />
-                    </div>
-                    <div className="card-container">
-                       
-                    </div>
-                </div>
-                
-            </section>
-            
-            
-        </>
-    )
+export default function Home() {
+  return (
+    <>
+      <Navbar />
+      <section id="pizza">
+        <div className="container">
+          <div className="titre">
+            <hr />
+            <p>Pizza</p>
+            <hr />
+          </div>
+          <div className="card-container">
+            <PizzaCard />
+          </div>
+          <div className="footer">
+            <Footer />
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
