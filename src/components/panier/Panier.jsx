@@ -89,14 +89,14 @@ const quantité =[]
           <h6 className="panier-prix">€{calculateTotal()}</h6>
         </div>
         
-        <Link className="button-commander">
-            <button>
-                <div>
+        <Link>
+            <button  className="button-commander">
+                <div className="commander">
                    
                     
-                    <span> {calculatequantite(panier)} </span>
-                    <span>Commander</span>
-                    <span>{calculateTotal ()}</span>
+                    <span className="quantité"> {calculatequantite(panier)} </span>
+                    <span>Commander </span>
+                    <span>{calculateTotal ()} €</span>
                 </div>
             </button> 
         </Link>
