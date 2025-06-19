@@ -1,9 +1,11 @@
 import data from "../../data.json";
 import "./pizzaCard.css";
+
 import { useDispatch } from "react-redux";
 import { addToPanier } from "../../features/PanierSlice/PanierSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
 
 export default function PizzaCard() {
   const dispatch = useDispatch();

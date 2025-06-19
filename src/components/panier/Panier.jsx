@@ -14,7 +14,10 @@ import { useEffect } from "react";
 export default function Panier() {
   const panier = useSelector((state) => state.panier);
   const dispatch = useDispatch();
-
+useEffect(()=>{
+    console.log(panier);
+    
+},[panier])
   const handleRemoveItem = (index) => {
     dispatch(removeFromPanier(index));
   };
@@ -28,15 +31,8 @@ export default function Panier() {
   };
 
   const calculatequantite= (array)=>{
-    for (let i = 0; i < array.length; i++) {
-        const element = array[i];
-        const e = array[i+1]
-        var somme= element.quantite+= e[i].quantite
-           
-    }
-    return  somme 
-    console.log(somme);
-    
+    const somme =array.reduce((a,b)=>a+ b.quantite,0)
+    return somme
   }
   const calculateTotal = () => {
     return panier
@@ -44,8 +40,7 @@ export default function Panier() {
       .toFixed(2);
   };
   
-  useEffect(()=>{ console.log(panier);
-  },[panier])
+
 const quantité =[]
   return (
     <>
@@ -93,19 +88,20 @@ const quantité =[]
           <h3>Total</h3>
           <h6 className="panier-prix">€{calculateTotal()}</h6>
         </div>
-      </div>
-
-        <Link>
+        
+        <Link className="button-commander">
             <button>
                 <div>
-                    <span>{panier.map(element=>(
-                        element.quantite
-                    ))}</span>
-                    <span>Commander</span>
+                   
+                    
                     <span> {calculatequantite(panier)} </span>
+                    <span>Commander</span>
+                    <span>{calculateTotal ()}</span>
                 </div>
             </button> 
         </Link>
+      </div>
+
     </>
   );
 }
