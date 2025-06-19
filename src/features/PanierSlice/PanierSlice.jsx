@@ -40,6 +40,7 @@ export const PanierSlice = createSlice({
     clearPanier: () => {
       return [];
     },
+    
   },
 
 });

@@ -8,6 +8,8 @@ import {
   increaseQuantity,
   removeFromPanier,
 } from "../../features/PanierSlice/PanierSlice";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Panier() {
   const panier = useSelector((state) => state.panier);
@@ -25,12 +27,26 @@ export default function Panier() {
     dispatch(decreaseQuantity(index));
   };
 
+  const calculatequantite= (array)=>{
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        const e = array[i+1]
+        var somme= element.quantite+= e[i].quantite
+           
+    }
+    return  somme 
+    console.log(somme);
+    
+  }
   const calculateTotal = () => {
     return panier
       .reduce((total, item) => total + item.prix * item.quantite, 0)
       .toFixed(2);
   };
-
+  
+  useEffect(()=>{ console.log(panier);
+  },[panier])
+const quantité =[]
   return (
     <>
       <div className="panier-container">
@@ -78,6 +94,18 @@ export default function Panier() {
           <h6 className="panier-prix">€{calculateTotal()}</h6>
         </div>
       </div>
+
+        <Link>
+            <button>
+                <div>
+                    <span>{panier.map(element=>(
+                        element.quantite
+                    ))}</span>
+                    <span>Commander</span>
+                    <span> {calculatequantite(panier)} </span>
+                </div>
+            </button> 
+        </Link>
     </>
   );
 }

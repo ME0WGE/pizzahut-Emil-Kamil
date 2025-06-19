@@ -29,12 +29,17 @@
   gap: 17px;
   height: 50px;
   align-items: center;
+  position: relative;
 }
 .changements-pizza h6 {
   font-size: 14px;
 }
 .supr {
   color: rgb(223, 44, 44);
+}
+.supr:hover,.modif:hover{
+    cursor: pointer;
+    text-decoration: underline;
 }
 .panier-prix {
   font-size: 16px;
@@ -58,7 +63,25 @@
   font-weight: bold;
   padding: 3px 6px;
   text-align: center;
+  position: relative;
 }
+.changements-pizza span::before {
+    content: '';
+    width: 22px;
+    background-color: #dfdfe3;
+    position: absolute;
+    height: 2px;
+    bottom: -25%;
+    left: 8%;
+    opacity: 0; /* Invisible par défaut */
+    transition: opacity 0.3s ease; /* Animation fluide */
+}
+
+.changements-pizza span:hover::before {
+    opacity: 1; /* Visible au hover */
+}
+    
+
 .counter {
   margin-left: -9px;
   margin-right: -9px;

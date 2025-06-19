@@ -10,7 +10,8 @@
         "légumes":["Tomates","Jalapenos"],
         "viandes":["Poulet kebab"]
 
-    }
+    },
+    "quantite":0
     
 
 },
@@ -19,6 +20,7 @@
     "nom":"Margherita",
     "description":"L'originale pizza de base, avec une sauce tomate et de la mozzarella",
     "prix": 14,
+    "quantite":0,
     "ingredients":{
         "sauce":"tomate",
         "fromages":"mozzarella"
@@ -31,6 +33,7 @@
     "nom":"Falafel",
     "description":"Boulettes de falafel, coulis de basilic, tomates en dés, persil, sauce tomate, fromage vegan Violife",
     "prix":20.10,
+    "quantite":0,
      "ingredients":{
         "sauce":"tomate",
         "fromages":"Vegan Violife",
@@ -42,6 +45,7 @@
     "nom":"Pepperoni Lovers",
     "description":"si t'aimes bien prends ",
     "prix":15,
+    "quantite":0,
     "ingredients":{
         "sauce":"tomate",
         "fromages":"mozzarella",
@@ -54,6 +58,7 @@
     "nom":"Garden Lovers",
     "description":"Champignons, poivrons verts, dés de tomates, oignons rouges, mozzarella et sauce tomate",
     "prix":16,
+    "quantite":0,
     "ingredients":{
         "sauce":"tomate",
         "fromages":"mozzarella",
@@ -66,6 +71,7 @@
     "nom":"Forestiere",
     "description":"Jambon, champignons, dés de tomates, mozzarella et sauce tomate",
     "prix":16,
+    "quantite":0,
      "ingredients":{
         "sauce":"tomate",
         "fromages":"mozzarella",
@@ -78,6 +84,7 @@
     "nom":"Hawaiian",
     "description":"La douceur de l'ananas accompagnée de jambon, champignons, mozzarella et sauce tomate",
     "prix":18.60,
+    "quantite":0,
     "ingredients":{
         "sauce":"tomate",
         "fromages":"mozzarella",
@@ -90,6 +97,7 @@
     "nom":"Cheesam",
     "description":"Beaucoup de mozzarella, jambon et de la sauce tomate",
     "prix":15,
+    "quantite":0,
      "ingredients":{
         "sauce":"tomate",
         "fromages":"mozzarella",
@@ -102,6 +110,7 @@
     "nom":"Hot'n Spicy",
     "description":"Viande de boeuf épicée, piments verts, oignons rouges, dés de tomates, mozzarella et sauce tomate",
     "prix":18.60,
+    "quantite":0,
     "ingredients":{
         "sauce":"tomate",
         "fromages":"mozzarella",
@@ -114,6 +123,7 @@
     "nom":"Barbecue Chicken",
     "description":"Dés de poulet grillé, champignons, poivrons verts, oignons rouges, mozzarella et sauce barbecue",
     "prix":18.60,
+    "quantite":0,
     "ingredients":{
         "sauce":"BBQ",
         "fromages":"mozzarella",
@@ -126,6 +136,7 @@
     "nom":"Barbecue",
     "description":"Double portion de viande de boeuf épicée, tranches de bacon fumé, oignons rouges, mozzarella et sauce barbecue",
     "prix":18.60,
+    "quantite":0,
     "ingredients":{
         "sauce":"BBQ",
         "fromages":"mozzarella",
@@ -138,6 +149,7 @@
     "nom":"Alsace",
     "description":"Lardons fumés, oignons rouges, champignons, sauce à l'ail, mozzarella, sauce tomate",
     "prix":18.60,
+    "quantite":0,
     "ingredients":{
         "sauce":"Tomate",
         "fromages":"mozzarella",
@@ -150,6 +162,7 @@
     "nom":"Sûpreme",
     "description":"Viande de boeuf épicée, pepperoni, champignons, poivron vert, oignon, mozzarella et sauce tomate",
     "prix":18.60,
+    "quantite":0,
     "ingredients":{
         "sauce":"Tomate",
         "fromages":"mozzarella",
@@ -162,6 +175,7 @@
     "nom":"Pepper",
     "description":"Double portion de viande de boeuf, dés de tomates, oignons rouges, sauce au poivre, mozzarella et sauce tomate",
     "prix":18.60,
+    "quantite":0,
     "ingredients":{
         "sauce":"Tomate",
         "fromages":"mozzarella",
@@ -174,6 +188,7 @@
     "nom":"Chicken Twist",
     "description":"Poulet kebab (halal), dés de tomates, oignons rouges, sauce à l'ail douce, mozzarella, sauce tomate",
     "prix":18.60,
+    "quantite":0,
     "ingredients":{
         "sauce":"Tomate",
         "fromages":"mozzarella",
@@ -186,6 +201,7 @@
     "nom":"Sweet Chicken Curry",
     "description":"diabète stage 4 ",
     "prix":18.60,
+    "quantite":0,
     "ingredients":{
         "sauce":"Tomate",
         "fromages":"mozzarella",
@@ -198,6 +214,7 @@
     "nom":"Pick & Mix",
     "description":"Devenez le chef cuisto et composez votre pizza: sauce tomate, mozzarella +3 garnitures au choix.",
     "prix":18.60,
+    "quantite":0,
     "ingredients":{
         "sauce":"Tomate",
         "fromages":"mozzarella",
@@ -210,6 +227,7 @@
     "nom":"4 Fromages",
     "description":"Emmental, fromage de chèvre, Fourme d'Ambert AOP, mozzarella et crème épaisse",
     "prix":20.10,
+    "quantite":0,
      "ingredients":{
         "sauce":"Creme epaisse",
         "fromages":["mozzarella","Emmental","Fromage de chèvre","Fourme d'Ambert"],
@@ -222,6 +240,7 @@
     "nom":"Grimbergen",
     "description":"Jambon italien 'parme', champignons, mozzarella, crème épaisse et fromage d'abbaye Grimbergen",
     "prix":20.10,
+    "quantite":0,
     "ingredients":{
         "sauce":"Creme epaisse",
         "fromages":["mozzarella","Fromage d'abbaye Grimbergen"],
@@ -234,6 +253,7 @@
     "nom":"Super Supreme",
     "description":"Viande de boeuf, viande de porc épicée, jambon, pepperoni, oignons rouges, champignons, poivron vert, olives noires, mozzarella et sauce tomate",
     "prix":20.10,
+    "quantite":0,
     "ingredients":{
         "sauce":"Creme epaisse",
         "fromages":["mozzarella","Fromage d'abbaye Grimbergen"],
@@ -246,6 +266,7 @@
     "nom":"Thon",
     "description":"Thon, oignons rouges, olives noires, persil, sauce tomate, mozzarella",
     "prix":20.10,
+    "quantite":0,
     "ingredients":{
         "sauce":"Creme epaisse",
         "fromages":["mozzarella","Fromage d'abbaye Grimbergen"],
