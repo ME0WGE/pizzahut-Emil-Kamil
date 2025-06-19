@@ -1,8 +1,10 @@
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
+import Panier from "../components/panier/Panier";
 import PizzaCard from "../components/pizza-card/Pizza-card";
 
 export default function Home() {
+
   return (
     <>
       <Navbar />
@@ -13,9 +15,13 @@ export default function Home() {
             <p>Pizza</p>
             <hr />
           </div>
-          <div className="card-container">
-            <PizzaCard />
+          <div className="content">
+            <div className="card-container">
+              <PizzaCard /> 
           </div>
+            <Panier/>
+          </div>
+          
           <div className="footer">
             <Footer />
           </div>

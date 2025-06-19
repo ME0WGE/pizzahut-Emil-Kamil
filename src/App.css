@@ -13,3 +13,8 @@
     margin: 0 20px;
     color: gray;
 }
+
+.content{
+    display: flex;
+    gap: 15px;
+}
