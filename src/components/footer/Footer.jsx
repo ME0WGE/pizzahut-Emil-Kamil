@@ -19,7 +19,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-credits">
-          <p>© 2023 | Projet de formation</p>
+          <p>© 2025 | Projet Redux</p>
           <p>
             Le design original, les logos et marques appartiennent à leurs
             propriétaires respectifs. Aucune utilisation commerciale n'est
