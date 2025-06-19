@@ -1,10 +1,34 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 import PizzaCard from "../components/pizza-card/Pizza-card";
+import {
+  removeFromPanier,
+  increaseQuantity,
+  decreaseQuantity,
+} from "../features/PanierSlice/PanierSlice";
 
 export default function Home() {
   const panier = useSelector((state) => state.panier);
+  const dispatch = useDispatch();
+
+  const handleRemoveItem = (index) => {
+    dispatch(removeFromPanier(index));
+  };
+
+  const handleIncreaseQuantity = (index) => {
+    dispatch(increaseQuantity(index));
+  };
+
+  const handleDecreaseQuantity = (index) => {
+    dispatch(decreaseQuantity(index));
+  };
+
+  const calculateTotal = () => {
+    return panier
+      .reduce((total, item) => total + item.prix * item.quantite, 0)
+      .toFixed(2);
+  };
 
   return (
     <>
@@ -45,9 +69,61 @@ export default function Home() {
                             marginRight: "10px",
                           }}
                         />
-                        <span>{item.nom}</span>
+                        <div
+                          style={{ display: "flex", flexDirection: "column" }}>
+                          <span>{item.nom}</span>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "5px",
+                            }}>
+                            <button
+                              onClick={() => handleDecreaseQuantity(index)}
+                              style={{
+                                width: "24px",
+                                height: "24px",
+                                border: "1px solid #ccc",
+                                borderRadius: "4px",
+                                background: "#f5f5f5",
+                                cursor: "pointer",
+                              }}>
+                              -
+                            </button>
+                            <span style={{ margin: "0 5px" }}>
+                              Qty: {item.quantite || 1}
+                            </span>
+                            <button
+                              onClick={() => handleIncreaseQuantity(index)}
+                              style={{
+                                width: "24px",
+                                height: "24px",
+                                border: "1px solid #ccc",
+                                borderRadius: "4px",
+                                background: "#f5f5f5",
+                                cursor: "pointer",
+                              }}>
+                              +
+                            </button>
+                            <button
+                              onClick={() => handleRemoveItem(index)}
+                              style={{
+                                marginLeft: "8px",
+                                padding: "3px 8px",
+                                background: "#C8102E",
+                                color: "white",
+                                border: "none",
+                                borderRadius: "4px",
+                                cursor: "pointer",
+                              }}>
+                              Remove
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                      <span style={{ fontWeight: "bold" }}>€{item.prix}</span>
+                      <span style={{ fontWeight: "bold" }}>
+                        €{(item.prix * (item.quantite || 1)).toFixed(2)}
+                      </span>
                     </div>
                   ))}
                   <div
@@ -58,12 +134,7 @@ export default function Home() {
                       fontWeight: "bold",
                     }}>
                     <span>Total:</span>
-                    <span>
-                      €
-                      {panier
-                        .reduce((total, item) => total + item.prix, 0)
-                        .toFixed(2)}
-                    </span>
+                    <span>€{calculateTotal()}</span>
                   </div>
                 </div>
               )}
