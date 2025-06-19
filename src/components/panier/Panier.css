@@ -80,7 +80,12 @@
 .changements-pizza span:hover::before {
     opacity: 1; /* Visible au hover */
 }
-    
+
+.vide{
+    text-align: center;
+    margin-top: 70px;
+    opacity: 0.7;
+}
 
 .counter {
   margin-left: -9px;

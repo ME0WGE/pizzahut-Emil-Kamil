@@ -49,7 +49,7 @@ const quantité =[]
         <div className="panier-pizza-container">
           {/* Pizza Item */}
           {panier.length === 0 ? (
-            <p>Votre panier est vide</p>
+            <p className="vide">Votre panier est vide</p>
           ) : (
             panier.map((item, index) => (
               <div className="pizza-info-container" key={index}>
