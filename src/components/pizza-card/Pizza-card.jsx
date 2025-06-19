@@ -25,7 +25,10 @@ export default function PizzaCard() {
   return (
     <div className="pizza-container">
       {data.map((pizza, index) => (
-        <div className="card" key={index}>
+        <div
+          className="card"
+          key={index}
+          onClick={(e) => handleClick(e, pizza)}>
           <img className="pizza-img" src={pizza.image} alt={pizza.nom} />
           <div className="card-body">
             <h5 className="card-title">{pizza.nom}</h5>
