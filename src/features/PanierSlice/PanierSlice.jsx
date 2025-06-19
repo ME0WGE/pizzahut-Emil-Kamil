@@ -6,5 +6,7 @@ export const PanierSlice = createSlice({
   name: "panier",
   initialState: initialState,
 
-  reducers: {},
+  reducers: {
+      ajouter:(state,action)=>
+  }
 });
