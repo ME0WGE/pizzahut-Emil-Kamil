@@ -2,6 +2,8 @@ import data from "../../data.json";
 import "./pizzaCard.css";
 import { useDispatch } from "react-redux";
 import { addToPanier } from "../../features/PanierSlice/PanierSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default function PizzaCard() {
   const dispatch = useDispatch();
@@ -39,7 +41,7 @@ export default function PizzaCard() {
               à partir de <span className="prix">€{pizza.prix}</span>
             </p>
             <button onClick={(e) => handleClick(e, pizza)} className="add-btn">
-              +
+              <FontAwesomeIcon icon={faPlus} className="plus" />
             </button>
           </div>
         </div>
