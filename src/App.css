@@ -1,7 +1,7 @@
 .titre{
     display: flex;
     margin-top: 50px;
-    width: 56%;
+    width: 850px ;
     margin-left: 200px;
 }
 .titre hr{
@@ -12,4 +12,9 @@
 .titre p {
     margin: 0 20px;
     color: gray;
+}
+
+.content{
+    display: flex;
+    gap: 15px;
 }

@@ -4,12 +4,12 @@
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
-  width: 1000px;
+  width: 850px;
   margin-left: 180px;
 }
 
 .card {
-  width: calc(33% - 60px);
+  width: calc(33% - 11px);
   margin-bottom: 20px;
   border: none;
   position: relative;
