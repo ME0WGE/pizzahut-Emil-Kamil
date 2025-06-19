@@ -17,12 +17,7 @@ export const PizzaSlice = createSlice({
   name: "pizza",
   initialState: initialState,
 
-  reducers: {
-    addToPanier: (state, action) => {
-      state.value = action.payload;
-    },
-  },
+  reducers: {},
 });
 
-export const { addToPanier } = PizzaSlice.actions;
 export const PizzaSliceReducer = PizzaSlice.reducer;

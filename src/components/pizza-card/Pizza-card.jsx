@@ -1,8 +1,22 @@
-import { Link } from "react-router-dom";
 import data from "../../data.json";
 import "./pizzaCard.css";
+import { useDispatch } from "react-redux";
+import { addToPanier } from "../../features/PanierSlice/PanierSlice";
 
 export default function PizzaCard() {
+  const dispatch = useDispatch();
+
+  const handleAddToPanier = (pizza) => {
+    dispatch(
+      addToPanier({
+        nom: pizza.nom,
+        prix: pizza.prix,
+        image: pizza.image,
+        id: Date.now(),
+      })
+    );
+  };
+
   return (
     <div className="pizza-container">
       {data.map((pizza, index) => (
@@ -16,7 +30,7 @@ export default function PizzaCard() {
             <p className="card-prix">
               à partir de <span className="prix">€{pizza.prix}</span>
             </p>
-            <a href="#">+</a>
+            <button onClick={() => handleAddToPanier(pizza)}>+</button>
           </div>
         </div>
       ))}
