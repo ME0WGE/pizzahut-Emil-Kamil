@@ -20,7 +20,13 @@ export default function PizzaCard() {
   return (
     <div className="pizza-container">
       {data.map((pizza, index) => (
-        <div className="card" key={index}>
+        <div
+          className="card"
+          key={index}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleAddToPanier(pizza);
+          }}>
           <img className="pizza-img" src={pizza.image} alt={pizza.nom} />
           <div className="card-body">
             <h5 className="card-title">{pizza.nom}</h5>
@@ -30,7 +36,13 @@ export default function PizzaCard() {
             <p className="card-prix">
               à partir de <span className="prix">€{pizza.prix}</span>
             </p>
-            <button onClick={() => handleAddToPanier(pizza)}>+</button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleAddToPanier(pizza);
+              }}>
+              +
+            </button>
           </div>
         </div>
       ))}
