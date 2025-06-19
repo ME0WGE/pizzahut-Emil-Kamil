@@ -1,7 +1,9 @@
 nav{
     background-color: #C8102E;
     display: flex;
-    
+    position: sticky;
+    z-index: 100;
+    top: 0;
     padding:11px 200px;
     align-items: center;
     text-align:center;

@@ -1,4 +1,5 @@
 import Navbar from "../components/navbar/Navbar";
+import Panier from "../components/panier/Panier";
 import PizzaCard from "../components/pizza-card/Pizza-card";
 import data from '../data.json'
 export default function Home() {
@@ -13,7 +14,11 @@ export default function Home() {
                     <div className="titre">
                         <hr /><p>Pizza</p><hr />
                     </div>
-                    <PizzaCard />
+                    <div className="content">
+                         <PizzaCard />
+                        <Panier/>
+                    </div>
+                   
                 </div>
                 
             </section>
