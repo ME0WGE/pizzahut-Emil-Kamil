@@ -74,7 +74,7 @@
   text-align: center;
   justify-content: flex-end;
   display: flex;
-  gap: 15px;
+  gap: 10px;
 }
 .card-footer p {
   margin: 0;
@@ -104,20 +104,29 @@
 
 }
 
-.card a {
+.add-btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  width: 33px;
+  height: 33px;
   background-color: #C8102E;
   color: white;
   text-decoration: none;
   border-radius: 7px;
   float: right;
+  border: none;
+  font-size: 22px;
   font-size: 1.2rem;
   font-weight: bold;
   transition: all 250ms;
+}
+.plus{
+  font-size: 16px;
+}
+.add-btn:hover{
+  cursor: pointer;
+  background-color: #bea763;
 }
 
 .card a:hover {
