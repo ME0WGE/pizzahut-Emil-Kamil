@@ -1,17 +1,16 @@
 .pizza-container {
   background-color: #f5f7f9;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
 }
 
 .card {
-  width: calc(33.33% - 14px);
   margin-bottom: 20px;
   border: none;
   position: relative;
-  display: inline-block;
+  display: block;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   background-color: white;
@@ -77,9 +76,8 @@
 .card-footer p {
   margin: 0;
 }
-.pizza-img{
+.pizza-img {
   float: left;
-  
 }
 
 .card-prix {
@@ -90,7 +88,7 @@
   line-height: 30px;
   color: rgba(0, 0, 0, 0.686);
 }
-.card-prix span{
+.card-prix span {
   color: black;
 }
 
@@ -99,7 +97,6 @@
   font-size: 18px;
   font-weight: 800;
   opacity: 1;
-
 }
 
 .add-btn {
@@ -108,7 +105,7 @@
   align-items: center;
   width: 33px;
   height: 33px;
-  background-color: #C8102E;
+  background-color: #c8102e;
   color: white;
   text-decoration: none;
   border-radius: 7px;
@@ -119,10 +116,10 @@
   font-weight: bold;
   transition: all 250ms;
 }
-.plus{
+.plus {
   font-size: 16px;
 }
-.add-btn:hover{
+.add-btn:hover {
   cursor: pointer;
   background-color: #bea763;
 }
@@ -141,13 +138,13 @@
 }
 
 @media (max-width: 992px) {
-  .card {
-    width: calc(50% - 10px);
+  .pizza-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 576px) {
-  .card {
-    width: 100%;
+  .pizza-container {
+    grid-template-columns: 1fr;
   }
 }

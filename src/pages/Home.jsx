@@ -9,21 +9,24 @@ export default function Home() {
       <Navbar />
       <section id="pizza">
         <div className="container">
-          <div className="titre">
-            <hr />
-            <p>Pizza</p>
-            <hr />
-          </div>
-
-          <div className="content">
-            <div className="card-container">
-              <PizzaCard />
+          <div className="content-layout">
+            <div className="main-content">
+              <div className="titre">
+                <hr />
+                <p>Pizza</p>
+                <hr />
+              </div>
+              <div className="card-section">
+                <PizzaCard />
+              </div>
             </div>
-            <Panier />
+
+            <div className="sidebar">
+              <Panier />
+            </div>
           </div>
         </div>
       </section>
-
       <Footer />
     </>
   );

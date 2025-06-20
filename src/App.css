@@ -10,40 +10,58 @@
   padding: 0 15px;
 }
 
+.content-layout {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+}
+
 .titre {
   display: flex;
-  margin-top: 50px;
-  width: 66%;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 .titre hr {
   flex: 1;
   opacity: 0.2;
   background-color: gray;
+  height: 1px;
+  border: none;
 }
 
 .titre p {
   margin: 0 20px;
   color: gray;
+  font-size: 18px;
 }
 
-.content {
+.card-section {
+  width: 100%;
   display: flex;
-  gap: 30px;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.card-container {
-  width: calc(100% - 260px);
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 @media (max-width: 992px) {
-  .content {
+  .content-layout {
     flex-direction: column;
   }
 
-  .card-container {
+  .sidebar {
     width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
   }
 }
