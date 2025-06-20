@@ -14,8 +14,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/checkout/:id" element={<Customize />} />
-          <Route path="/checkout/recap" element={<Checkout />} />
-          <Route path="/thankyou" element={<Thankyou />} />
+          <Route path="/checkout/" element={<Checkout />} />
+          <Route path="/thank-you" element={<Thankyou />} />
 
           <Route path="*" element={<Error />} />
         </Route>

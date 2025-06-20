@@ -86,7 +86,7 @@ export default function Panier() {
           <h6 className="panier-prix">€{calculateTotal()}</h6>
         </div>
 
-        <Link>
+        <Link to="/checkout">
           <button className="button-commander">
             <div className="commander">
               <span className="quantité"> {calculatequantite(panier)} </span>
