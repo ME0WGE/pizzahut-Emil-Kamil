@@ -11,14 +11,15 @@ html {
   box-sizing: border-box;
 }
 
-nav {
-  width: 100%;
-  z-index: 1000;
-}
-
+/* Desktop Navbar */
 .desktop-nav {
   background-color: #e31837;
   height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .desktop-nav .nav-content {
@@ -126,9 +127,13 @@ nav {
 /* Mobile Navbar */
 .mobile-nav {
   background-color: white;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .scroll-container {
@@ -184,7 +189,16 @@ nav {
   }
 }
 
-/* Hover effects (desktop only) */
+body {
+  padding-top: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding-top: 50px;
+  }
+}
+
 @media (hover: hover) {
   .nav-link:hover {
     color: #e31837;
