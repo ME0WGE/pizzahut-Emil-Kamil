@@ -31,11 +31,12 @@ export default function PizzaCard() {
   return (
     <div className="pizza-container">
       {data.map((pizza, index) => (
-        <div
-          className="card"
+       <Link className="lien card" to={`/checkout/${pizza.nom}`}>
+       <div
+         
           key={index}
           onClick={(e) => handleClick(e, pizza)}>
-            <Link className="lien" to={`/checkout/:${pizza.nom}`}>
+            
           <img className="pizza-img" src={pizza.image} alt={pizza.nom} />
           <div className="card-body">
             <h5 className="card-title">{pizza.nom}</h5>
@@ -45,12 +46,13 @@ export default function PizzaCard() {
             <p className="card-prix">
               à partir de <span className="prix">€{pizza.prix}</span>
             </p>
-           <Link className="lien" to={`/checkout/:${pizza.nom}`}> <button onClick={(e) => handleClick(e, pizza)} className="add-btn">
+           <Link className="lien" to={`/checkout/${pizza.nom}`}> <button onClick={(e) => handleClick(e, pizza)} className="add-btn">
               <FontAwesomeIcon icon={faPlus} className="plus" />
             </button></Link>
           </div>
-           </Link>
+          
         </div>
+         </Link>
        
       ))}
     </div>

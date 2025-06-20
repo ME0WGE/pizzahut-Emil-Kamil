@@ -1,0 +1,12 @@
+#customize{
+
+    margin-left: 180px;
+    width: 850px;
+}
+
+.retour{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}

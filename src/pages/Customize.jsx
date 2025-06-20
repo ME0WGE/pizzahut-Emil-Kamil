@@ -1,10 +1,35 @@
 import { useParams } from "react-router-dom"
 import data from '../data.json'
-export default function Customize() {
+import "./Customize.css"
+import Navbar from "../components/navbar/Navbar"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 
-  return(
+export default function Customize() {
+const {id}=useParams()
+const pizza = data.find((item)=>item.nom ===id)
+console.log(pizza);
+
+
+
+return(
     <>
-      .customize
+    <Navbar/>
+    <section id="customize">
+      <div className="retour">
+        <FontAwesomeIcon icon={faChevronLeft} />
+        <p>Retour</p>
+      
+      </div>
+        
+         <div   className="customize-container">
+        <div className="customize-image">
+          <img src={data[1].image} alt="" />
+        </div>
+      </div>
+  
+     
+      </section>
       
     </>
   )
