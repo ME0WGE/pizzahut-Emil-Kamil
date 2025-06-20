@@ -64,3 +64,37 @@
 .finalize-button:hover {
   background: #a50d23;
 }
+
+.coupon-error {
+  color: #c8102e;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.coupon-success {
+  color: #70a401;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.subtotal-line,
+.discount-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.discount-line {
+  color: #70a401;
+}
+
+.total-line {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}

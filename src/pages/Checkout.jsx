@@ -1,17 +1,31 @@
-import "./Checkout.css";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import "./Checkout.css";
 
 export default function Checkout() {
   const panier = useSelector((state) => state.panier);
   const navigate = useNavigate();
   const [coupon, setCoupon] = useState("");
+  const [isCouponApplied, setIsCouponApplied] = useState(false);
+  const [couponError, setCouponError] = useState("");
 
   const calculateTotal = () => {
-    return panier
-      .reduce((total, item) => total + item.prix * item.quantite, 0)
-      .toFixed(2);
+    const subtotal = panier.reduce(
+      (total, item) => total + item.prix * item.quantite,
+      0
+    );
+    return isCouponApplied ? (subtotal * 0.9).toFixed(2) : subtotal.toFixed(2);
+  };
+
+  const handleCoupon = () => {
+    if (coupon.toLowerCase() === "promo10") {
+      setIsCouponApplied(true);
+      setCouponError("");
+    } else {
+      setIsCouponApplied(false);
+      setCouponError("Code promo invalide");
+    }
   };
 
   const handleFinalize = () => {
@@ -46,11 +60,44 @@ export default function Checkout() {
             onChange={(e) => setCoupon(e.target.value)}
             placeholder="Entrez votre code promo"
           />
-          <button className="apply-coupon">Appliquer</button>
+          <button className="apply-coupon" onClick={handleCoupon}>
+            Appliquer
+          </button>
         </div>
+        {couponError && <p className="coupon-error">{couponError}</p>}
+        {isCouponApplied && (
+          <p className="coupon-success">
+            Code promo de 10% appliqué avec succès!
+          </p>
+        )}
       </div>
 
       <div className="order-summary">
+        {isCouponApplied && (
+          <div className="subtotal-line">
+            <span>Sous-total</span>
+            <span className="subtotal-amount">
+              €
+              {panier
+                .reduce((total, item) => total + item.prix * item.quantite, 0)
+                .toFixed(2)}
+            </span>
+          </div>
+        )}
+        {isCouponApplied && (
+          <div className="discount-line">
+            <span>Réduction (10%)</span>
+            <span className="discount-amount">
+              -€
+              {(
+                panier.reduce(
+                  (total, item) => total + item.prix * item.quantite,
+                  0
+                ) * 0.1
+              ).toFixed(2)}
+            </span>
+          </div>
+        )}
         <div className="total-line">
           <span>Total</span>
           <span className="total-amount">€{calculateTotal()}</span>
