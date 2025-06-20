@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import './Nav.css'
 import logo from "/src/assets/img/ph-logo-white.webp"
 
@@ -10,7 +10,7 @@ export default function Navbar() {
         <>
             <nav>
                 <div className="nav-logo">
-                    <img src={logo} alt="" />
+                 <Link to={"/"}> <img src={logo} alt="" /></Link>   
                 </div>
                 <div className="ancres">
                     <NavLink to={"/"} className={"link"}>Pizza </NavLink>

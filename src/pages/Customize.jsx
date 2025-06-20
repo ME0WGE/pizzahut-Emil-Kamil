@@ -1,12 +1,11 @@
 import { useParams } from "react-router-dom"
-
-
+import data from '../data.json'
 export default function Customize() {
-let {id}=useParams() 
- 
+
   return(
     <>
-      <h1>llll</h1>
+      <h1>vjr</h1>
+      
     </>
   )
 }

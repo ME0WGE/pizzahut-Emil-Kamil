@@ -35,7 +35,7 @@ export default function PizzaCard() {
           className="card"
           key={index}
           onClick={(e) => handleClick(e, pizza)}>
-            <Link className="lien" to={`/checkout/custimize/${pizza.nom}/:${index}`}>
+            <Link className="lien" to={`/checkout/:${pizza.nom}`}>
           <img className="pizza-img" src={pizza.image} alt={pizza.nom} />
           <div className="card-body">
             <h5 className="card-title">{pizza.nom}</h5>
