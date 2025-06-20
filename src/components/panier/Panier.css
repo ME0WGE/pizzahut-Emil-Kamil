@@ -123,8 +123,8 @@
 }
 
 .quantité {
-  background-color: #639003;
-  padding: 8px 10px;
+  background-color: #a8c46c;
+  padding: 5px 10px;
   border-radius: 4px;
 }
 
@@ -133,15 +133,12 @@
   border: none;
   border-radius: 5px;
   height: 60px;
-  width: 340px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-top: 20px;
-  color: white;
+  width: calc(100% + 30px);
   margin-left: -15px;
-  font-weight: 500;
-  font-size: 18px;
-  transition: 250ms ease;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .button-commander:hover {
@@ -149,10 +146,21 @@
   background-color: #4c6f01;
 }
 
+.button-commander.disabled {
+  background-color: #c6db99;
+  cursor: not-allowed;
+}
+
+.disabled-link {
+  pointer-events: none;
+  text-decoration: none;
+}
+
 .commander {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 @media (max-width: 768px) {
