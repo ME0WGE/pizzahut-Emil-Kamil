@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import "./Thankyou.css";
@@ -8,7 +6,6 @@ import "./Thankyou.css";
 export default function Thankyou() {
   return (
     <>
-      <Navbar />
       <div className="thankyou-container">
         <div className="thankyou-card">
           <div className="check-circle">
@@ -22,7 +19,6 @@ export default function Thankyou() {
           </Link>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
