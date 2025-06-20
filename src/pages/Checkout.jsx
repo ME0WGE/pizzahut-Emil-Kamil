@@ -58,7 +58,7 @@ export default function Checkout() {
             type="text"
             value={coupon}
             onChange={(e) => setCoupon(e.target.value)}
-            placeholder="Entrez votre code promo"
+            placeholder="Entrez votre code promo (PROMO10)"
           />
           <button className="apply-coupon" onClick={handleCoupon}>
             Appliquer
