@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import data from "../data.json";
 import "./Customize.css";
-import Navbar from "../components/navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,7 +11,6 @@ export default function Customize() {
 
   return (
     <>
-      <Navbar />
       <section id="customize">
         <div className="retour">
           <FontAwesomeIcon icon={faChevronLeft} />
