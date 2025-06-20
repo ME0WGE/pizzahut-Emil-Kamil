@@ -14,18 +14,17 @@ export default function Home() {
             <p>Pizza</p>
             <hr />
           </div>
+
           <div className="content">
             <div className="card-container">
               <PizzaCard />
             </div>
             <Panier />
           </div>
-
-          <div className="footer">
-            <Footer />
-          </div>
         </div>
       </section>
+
+      <Footer />
     </>
   );
 }

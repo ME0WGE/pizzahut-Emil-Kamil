@@ -1,20 +1,49 @@
-.titre{
-    display: flex;
-    margin-top: 50px;
-    width: 850px ;
-    margin-left: 200px;
-}
-.titre hr{
-    flex: 1;
-    opacity:0.2 ;
-    background-color:gray ;
-}
-.titre p {
-    margin: 0 20px;
-    color: gray;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  font-family: "Sharp", sans-serif;
 }
 
-.content{
-    display: flex;
-    gap: 15px;
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.titre {
+  display: flex;
+  margin-top: 50px;
+  width: 66%;
+}
+
+.titre hr {
+  flex: 1;
+  opacity: 0.2;
+  background-color: gray;
+}
+
+.titre p {
+  margin: 0 20px;
+  color: gray;
+}
+
+.content {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.card-container {
+  width: calc(100% - 260px);
+}
+
+@media (max-width: 992px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .card-container {
+    width: 100%;
+  }
 }
