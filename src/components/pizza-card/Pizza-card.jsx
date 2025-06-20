@@ -5,15 +5,14 @@ import { useDispatch } from "react-redux";
 import { addToPanier } from "../../features/PanierSlice/PanierSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function PizzaCard() {
   const dispatch = useDispatch();
 
   const handleAddToPanier = (e, pizza) => {
-    e.preventDefault(); // Empêche la navigation
-    e.stopPropagation(); // Empêche la propagation
+    e.preventDefault();
+    e.stopPropagation();
     dispatch(
       addToPanier({
         nom: pizza.nom,
@@ -42,11 +41,10 @@ export default function PizzaCard() {
                 à partir de{" "}
                 <span className="prix">€{pizza.prix.toFixed(2)}</span>
               </p>
-              
-                <button className="add-btn">
-                  <FontAwesomeIcon icon={faPlus} className="plus" />
-                </button>
-             
+
+              <button className="add-btn">
+                <FontAwesomeIcon icon={faPlus} className="plus" />
+              </button>
             </div>
           </Link>
         </div>
