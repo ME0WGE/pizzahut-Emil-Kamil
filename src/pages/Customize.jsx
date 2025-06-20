@@ -21,12 +21,14 @@ return(
         <p>Retour</p>
       
       </div>
+       
+          <div   className="customize-container">
+           <div className="customize-image">
+              <img src={pizza.image} alt="" />
+           </div>
+          </div>
+    
         
-         <div   className="customize-container">
-        <div className="customize-image">
-          <img src={data[1].image} alt="" />
-        </div>
-      </div>
   
      
       </section>
