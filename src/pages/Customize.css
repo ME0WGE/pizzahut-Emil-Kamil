@@ -1,6 +1,6 @@
 #customize{
 
-    margin-left: 180px;
+    margin-left: 210px;
     width: 850px;
 }
 
@@ -20,6 +20,7 @@
 }
 .customize-container{
     display: flex;
+
 }
 .fleche{font-size: 14px;}
 .retour p{
@@ -43,4 +44,46 @@
 .custom-header h1,p {
     margin: 0;
    
+}
+.ingredient{
+    font-size: 18px;
+    display: flex; 
+    margin-bottom: 10px;
+   
+}
+.ingredients{
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+     margin-top: 15px;
+     
+}
+.ingredients h3{
+    margin: 0;
+   
+}
+.ingredient span{
+    background-color: #dfdfe3;
+  border-radius: 50%;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 3px 6px;
+  text-align: center;
+  position: relative;
+}
+.ingredient span:last-of-type{
+    background-color: #70A401;
+}
+.ingr-nom{
+    width: 240px;
+    margin-left: -20px;
+}
+.supplements{
+    height: 300px;
+}
+.custom-modif{
+    display: flex;
+    justify-content: space-between;
+    gap:10px
 }

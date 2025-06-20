@@ -1,9 +1,9 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import data from '../data.json'
 import "./Customize.css"
 import Navbar from "../components/navbar/Navbar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
+import { faChevronLeft, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons"
 
 export default function Customize() {
 const {id}=useParams()
@@ -35,14 +35,27 @@ return(
             </div>
               
               <p className="description">{pizza.description} </p>
+              <div className="supplements">
               <div className="ingredients">
                 <h3>Ingrédients</h3>
-                    <ul >
+                    <ul style={{listStyle:"none"}}>
                       {ingredients.map((item,index)=>{
-                       return  <li key={index}>{item} </li>
+                       return <div>
+                           <li key={index} className="ingredient"> <p className="ingr-nom">{item}</p>  
+                         <div className="custom-modif">
+                            <span><FontAwesomeIcon icon={faMinus} /></span>
+                          <p className="count">1</p>
+                          <span><FontAwesomeIcon icon={faPlus} /></span>
+                         </div>
+                          
+                          </li>
+                          </div>
+                      
                       })}
                     </ul>
                     
+              </div>
+              <Link></Link>
               </div>
            </div>
           </div>
