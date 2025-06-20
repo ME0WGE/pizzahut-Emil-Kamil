@@ -4,16 +4,8 @@
     "nom":"Jalapenos Nachos",
     "description":"Doritos Nachos, Poulet Kebab, Cheddar, Jalapños, Tomates en dés, Sauce Tomates, Mozzarella",
     "prix": 20.10,
-    "ingredients":{
-        "sauce":"tomate",
-        "fromages":"mozzarella",
-        "légumes":["Tomates","Jalapenos"],
-        "viandes":["Poulet kebab"]
-
-    },
+    "ingredients":["tomate", "mozzarella", "Tomates", "Jalapenos", "Poulet kebab"],
     "quantite":0
-    
-
 },
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406163450743.jpg",
@@ -21,12 +13,7 @@
     "description":"L'originale pizza de base, avec une sauce tomate et de la mozzarella",
     "prix": 14,
     "quantite":0,
-    "ingredients":{
-        "sauce":"tomate",
-        "fromages":"mozzarella"
-    }
-    
-
+    "ingredients":["tomate", "mozzarella"]
 },
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20230310155103630.png",
@@ -34,11 +21,7 @@
     "description":"Boulettes de falafel, coulis de basilic, tomates en dés, persil, sauce tomate, fromage vegan Violife",
     "prix":20.10,
     "quantite":0,
-     "ingredients":{
-        "sauce":"tomate",
-        "fromages":"Vegan Violife",
-        "légumes":["Tomate","Falafel"]
-    }
+    "ingredients":["tomate", "Vegan Violife", "Tomate", "Falafel"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406163536901.jpg",
@@ -46,12 +29,7 @@
     "description":"si t'aimes bien prends ",
     "prix":15,
     "quantite":0,
-    "ingredients":{
-        "sauce":"tomate",
-        "fromages":"mozzarella",
-        "légumes":[],
-        "viandes":"Pepperoni"
-    }
+    "ingredients":["tomate", "mozzarella", "Pepperoni"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406163156337.jpg",
@@ -59,12 +37,7 @@
     "description":"Champignons, poivrons verts, dés de tomates, oignons rouges, mozzarella et sauce tomate",
     "prix":16,
     "quantite":0,
-    "ingredients":{
-        "sauce":"tomate",
-        "fromages":"mozzarella",
-        "légumes":["Tomate","Poivron vert","Champignons","Ognions rouge"],
-        "viandes":""
-    }
+    "ingredients":["tomate", "mozzarella", "Tomate", "Poivron vert", "Champignons", "Ognions rouge"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406163123958.jpg",
@@ -72,12 +45,7 @@
     "description":"Jambon, champignons, dés de tomates, mozzarella et sauce tomate",
     "prix":16,
     "quantite":0,
-     "ingredients":{
-        "sauce":"tomate",
-        "fromages":"mozzarella",
-        "légumes":["Tomate","Champignons"],
-        "viandes":"Jambon"
-    }
+    "ingredients":["tomate", "mozzarella", "Tomate", "Champignons", "Jambon"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406163251534.jpg",
@@ -85,12 +53,7 @@
     "description":"La douceur de l'ananas accompagnée de jambon, champignons, mozzarella et sauce tomate",
     "prix":18.60,
     "quantite":0,
-    "ingredients":{
-        "sauce":"tomate",
-        "fromages":"mozzarella",
-        "légumes":["Ananas","Champignons"],
-        "viandes":"Jambon"
-    }
+    "ingredients":["tomate", "mozzarella", "Ananas", "Champignons", "Jambon"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406163026887.jpg",
@@ -98,12 +61,7 @@
     "description":"Beaucoup de mozzarella, jambon et de la sauce tomate",
     "prix":15,
     "quantite":0,
-     "ingredients":{
-        "sauce":"tomate",
-        "fromages":"mozzarella",
-        "légumes":[""],
-        "viandes":"Jambon"
-    }
+    "ingredients":["tomate", "mozzarella", "Jambon"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406163326415.jpg",
@@ -111,12 +69,7 @@
     "description":"Viande de boeuf épicée, piments verts, oignons rouges, dés de tomates, mozzarella et sauce tomate",
     "prix":18.60,
     "quantite":0,
-    "ingredients":{
-        "sauce":"tomate",
-        "fromages":"mozzarella",
-        "légumes":["Viande de boeuf épicée","Piments verts","Tomates","Ognions rouge"],
-        "viandes":""
-    }
+    "ingredients":["tomate", "mozzarella", "Viande de boeuf épicée", "Piments verts", "Tomates", "Ognions rouge"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406162902485.jpg",
@@ -124,12 +77,7 @@
     "description":"Dés de poulet grillé, champignons, poivrons verts, oignons rouges, mozzarella et sauce barbecue",
     "prix":18.60,
     "quantite":0,
-    "ingredients":{
-        "sauce":"BBQ",
-        "fromages":"mozzarella",
-        "légumes":["Champignons","Poivron vert","Tomates","Ognions rouge"],
-        "viandes":"Poulet grillé"
-    }
+    "ingredients":["BBQ", "mozzarella", "Champignons", "Poivron vert", "Tomates", "Ognions rouge", "Poulet grillé"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406162828439.jpg",
@@ -137,12 +85,7 @@
     "description":"Double portion de viande de boeuf épicée, tranches de bacon fumé, oignons rouges, mozzarella et sauce barbecue",
     "prix":18.60,
     "quantite":0,
-    "ingredients":{
-        "sauce":"BBQ",
-        "fromages":"mozzarella",
-        "légumes":["Ognions rouge"],
-        "viandes":["Viande de boeuf épicée","Bacon fumé"]
-    }
+    "ingredients":["BBQ", "mozzarella", "Ognions rouge", "Viande de boeuf épicée", "Bacon fumé"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406162803685.jpg",
@@ -150,12 +93,7 @@
     "description":"Lardons fumés, oignons rouges, champignons, sauce à l'ail, mozzarella, sauce tomate",
     "prix":18.60,
     "quantite":0,
-    "ingredients":{
-        "sauce":"Tomate",
-        "fromages":"mozzarella",
-        "légumes":["Ognions rouge","sauce a l'ail","Champignons"],
-        "viandes":["Lardons fumés"]
-    }
+    "ingredients":["Tomate", "mozzarella", "Ognions rouge", "sauce a l'ail", "Champignons", "Lardons fumés"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406163730364.jpg",
@@ -163,12 +101,7 @@
     "description":"Viande de boeuf épicée, pepperoni, champignons, poivron vert, oignon, mozzarella et sauce tomate",
     "prix":18.60,
     "quantite":0,
-    "ingredients":{
-        "sauce":"Tomate",
-        "fromages":"mozzarella",
-        "légumes":["Ognions rouge","Poivron vert","Champignons"],
-        "viandes":["Viande de boeuf épicée","Pepperoni"]
-    }
+    "ingredients":["Tomate", "mozzarella", "Ognions rouge", "Poivron vert", "Champignons", "Viande de boeuf épicée", "Pepperoni"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220712145325983.jpg",
@@ -176,12 +109,7 @@
     "description":"Double portion de viande de boeuf, dés de tomates, oignons rouges, sauce au poivre, mozzarella et sauce tomate",
     "prix":18.60,
     "quantite":0,
-    "ingredients":{
-        "sauce":"Tomate",
-        "fromages":"mozzarella",
-        "légumes":["Ognions rouge","sauce au poivre","Tomates"],
-        "viandes":["Viande de boeuf épicée"]
-    }
+    "ingredients":["Tomate", "mozzarella", "Ognions rouge", "sauce au poivre", "Tomates", "Viande de boeuf épicée"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406163057498.jpg",
@@ -189,12 +117,7 @@
     "description":"Poulet kebab (halal), dés de tomates, oignons rouges, sauce à l'ail douce, mozzarella, sauce tomate",
     "prix":18.60,
     "quantite":0,
-    "ingredients":{
-        "sauce":"Tomate",
-        "fromages":"mozzarella",
-        "légumes":["Ognions rouge","Tomates","sauce a l'ail"],
-        "viandes":["Poulet kebab"]
-    }
+    "ingredients":["Tomate", "mozzarella", "Ognions rouge", "Tomates", "sauce a l'ail", "Poulet kebab"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220504090424606.jpg",
@@ -202,12 +125,7 @@
     "description":"diabète stage 4 ",
     "prix":18.60,
     "quantite":0,
-    "ingredients":{
-        "sauce":"Tomate",
-        "fromages":"mozzarella",
-        "légumes":["Tomates","sauce a l'ail","Ananas","sauce curry douce"],
-        "viandes":["Poulet grillé"]
-    }
+    "ingredients":["Tomate", "mozzarella", "Tomates", "sauce a l'ail", "Ananas", "sauce curry douce", "Poulet grillé"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406163353600.jpg",
@@ -215,12 +133,7 @@
     "description":"Devenez le chef cuisto et composez votre pizza: sauce tomate, mozzarella +3 garnitures au choix.",
     "prix":18.60,
     "quantite":0,
-    "ingredients":{
-        "sauce":"Tomate",
-        "fromages":"mozzarella",
-        "légumes":[],
-        "viandes":[]
-    }
+    "ingredients":["Tomate", "mozzarella"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20250129162352075.jpg",
@@ -228,12 +141,7 @@
     "description":"Emmental, fromage de chèvre, Fourme d'Ambert AOP, mozzarella et crème épaisse",
     "prix":20.10,
     "quantite":0,
-     "ingredients":{
-        "sauce":"Creme epaisse",
-        "fromages":["mozzarella","Emmental","Fromage de chèvre","Fourme d'Ambert"],
-        "légumes":[],
-        "viandes":[]
-    }
+    "ingredients":["Creme epaisse", "mozzarella", "Emmental", "Fromage de chèvre", "Fourme d'Ambert"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406163225127.jpg",
@@ -241,12 +149,7 @@
     "description":"Jambon italien 'parme', champignons, mozzarella, crème épaisse et fromage d'abbaye Grimbergen",
     "prix":20.10,
     "quantite":0,
-    "ingredients":{
-        "sauce":"Creme epaisse",
-        "fromages":["mozzarella","Fromage d'abbaye Grimbergen"],
-        "légumes":["Champignons"],
-        "viandes":["Jambon Italien"]
-    }
+    "ingredients":["Creme epaisse", "mozzarella", "Fromage d'abbaye Grimbergen", "Champignons", "Jambon Italien"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20240820094140285.jpg",
@@ -254,12 +157,7 @@
     "description":"Viande de boeuf, viande de porc épicée, jambon, pepperoni, oignons rouges, champignons, poivron vert, olives noires, mozzarella et sauce tomate",
     "prix":20.10,
     "quantite":0,
-    "ingredients":{
-        "sauce":"Creme epaisse",
-        "fromages":["mozzarella","Fromage d'abbaye Grimbergen"],
-        "légumes":["Champignons","Ognions rouge","Olives noires","Piments verts"],
-        "viandes":["Pepperoni","Viande de boeuf épicée","Viande de porc","Jambon"]
-    }
+    "ingredients":["Creme epaisse", "mozzarella", "Fromage d'abbaye Grimbergen", "Champignons", "Ognions rouge", "Olives noires", "Piments verts", "Pepperoni", "Viande de boeuf épicée", "Viande de porc", "Jambon"]
 }, 
 {
     "image":"https://cdn-catalog.pizzahut.be/images/be/20220406164029214.jpg",
@@ -267,11 +165,6 @@
     "description":"Thon, oignons rouges, olives noires, persil, sauce tomate, mozzarella",
     "prix":20.10,
     "quantite":0,
-    "ingredients":{
-        "sauce":"Creme epaisse",
-        "fromages":["mozzarella","Fromage d'abbaye Grimbergen"],
-        "légumes":["Olives noires","Ognions rouge"],
-        "viandes":["Thon"]
-    }
+    "ingredients":["Creme epaisse", "mozzarella", "Fromage d'abbaye Grimbergen", "Olives noires", "Ognions rouge", "Thon"]
 }
 ]

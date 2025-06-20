@@ -8,5 +8,39 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-align: center;
     gap: 5px;
+    margin-top: 20px;
+    color: gray;
+}
+.customize-image{
+    width: 575px;
+    height: 575px;
+    position: absolute;  
+}
+.customize-container{
+    display: flex;
+}
+.fleche{font-size: 14px;}
+.retour p{
+    font-size: 17px;
+}
+.description{
+    margin-top: 13px;
+}
+.pizza-customize{
+    z-index: 2;
+    margin-left: 435px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    width: 470px;
+    height: 545px;
+}
+.custom-header{
+    display: flex;
+    justify-content: space-between;
+}
+.custom-header h1,p {
+    margin: 0;
+   
 }
