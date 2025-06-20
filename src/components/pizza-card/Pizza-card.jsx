@@ -12,7 +12,9 @@ import { Link } from "react-router-dom";
 export default function PizzaCard() {
   const dispatch = useDispatch();
 
-  const handleAddToPanier = (pizza) => {
+  const handleAddToPanier = (e,pizza) => {
+     e.preventDefault(); // Empêche la navigation
+    e.stopPropagation(); // Empêche la propagation
     dispatch(
       addToPanier({
         nom: pizza.nom,
@@ -23,20 +25,17 @@ export default function PizzaCard() {
     );
   };
 
-  const handleClick = (e, pizza) => {
-    e.stopPropagation();
-    handleAddToPanier(pizza);
-  };
+
 
   return (
     <div className="pizza-container">
       {data.map((pizza, index) => (
-       <Link className="lien card" to={`/checkout/${pizza.nom}`}>
+       
        <div
-         
+         className="card"
           key={index}
-          onClick={(e) => handleClick(e, pizza)}>
-            
+          onClick={(e) => handleAddToPanier(e, pizza)}>
+            <Link className="lien" to={`/checkout/${pizza.nom}`}>
           <img className="pizza-img" src={pizza.image} alt={pizza.nom} />
           <div className="card-body">
             <h5 className="card-title">{pizza.nom}</h5>
@@ -46,13 +45,16 @@ export default function PizzaCard() {
             <p className="card-prix">
               à partir de <span className="prix">€{pizza.prix.toFixed(2) }</span>
             </p>
-           <Link className="lien" to={`/checkout/${pizza.nom}`}> <button onClick={(e) => handleClick(e, pizza)} className="add-btn">
-              <FontAwesomeIcon icon={faPlus} className="plus" />
-            </button></Link>
+           <Link className="lien" to={`/checkout/${pizza.nom}`}> 
+              <button className="add-btn">
+                <FontAwesomeIcon icon={faPlus} className="plus" />
+              </button>
+            </Link>
+            
           </div>
-          
+           </Link>
         </div>
-         </Link>
+      
        
       ))}
     </div>

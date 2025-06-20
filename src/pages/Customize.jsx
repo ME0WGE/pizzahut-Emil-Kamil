@@ -4,6 +4,8 @@ import "./Customize.css"
 import Navbar from "../components/navbar/Navbar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronLeft, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons"
+import { useSelector } from "react-redux"
+import { useEffect } from "react"
 
 export default function Customize() {
 const {id}=useParams()
@@ -11,8 +13,13 @@ const pizza = data.find((item)=>item.nom ===id)
 console.log(pizza);
 console.log(id);
 const ingredients =pizza.ingredients
-
-
+const calculateTotal = () => {
+    return panier
+      .reduce((total, item) => total + item.prix * item.quantite, 0)
+      .toFixed(2);
+  };
+ const panier = useSelector((state) => state.panier);
+console.log(panier);
 
 return(
     <>
@@ -63,6 +70,31 @@ return(
                         <span>€{pizza.prix.toFixed(2) }</span>
                       </div>
                 </button></Link>
+           </div>
+           <div className="panier-container">
+        <h2 className="panier-titre">Panier d'achat</h2>
+        <div className="panier-pizza-container">
+          {/* Pizza Item */}
+          {panier.length === 0 ? (
+            <p className="vide">Votre panier est vide</p>
+          ) : (
+            panier.map((item, index) => (
+              <div className="pizza-info-container" key={index}>
+                <div className="pizza-info">
+                  <h4>{item.nom}</h4>
+                  <h6 className="panier-prix">€{item.prix}</h6>
+                </div>
+
+               
+              </div>
+            ))
+          )}
+        </div>
+        <div className="total">
+          <h3>Total</h3>
+          <h6 className="panier-prix">€{calculateTotal()}</h6>
+        </div>
+
            </div>
           </div>
     
