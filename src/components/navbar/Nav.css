@@ -12,27 +12,23 @@ html {
 }
 
 nav {
-  background-color: #c8102e;
-  display: flex;
-  position: sticky;
-  z-index: 100;
-  top: 0;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.45);
-  height: 60px;
   width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
+  z-index: 1000;
 }
 
-.nav-content {
+.desktop-nav {
+  background-color: #e31837;
+  height: 80px;
+}
+
+.desktop-nav .nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  max-width: 1140px;
-  padding: 0 15px;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
 .nav-logo {
@@ -42,13 +38,13 @@ nav {
 }
 
 .nav-logo img {
-  height: 35px;
+  height: 40px;
   margin-right: 10px;
 }
 
 .nav-links {
   display: flex;
-  gap: 10px;
+  gap: 30px;
   margin: 0 auto;
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -63,16 +59,15 @@ nav {
 .link {
   color: white;
   text-decoration: none;
-  padding: 25px 10px;
-  font-size: 15px;
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 16px;
   position: relative;
   transition: all 0.2s;
   white-space: nowrap;
 }
 
 .link:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .link[href*="Pizza"],
@@ -96,7 +91,7 @@ nav {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   flex-shrink: 0;
 }
 
@@ -107,7 +102,7 @@ nav {
   padding: 8px 16px;
   border-radius: 25px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 14px;
   transition: all 0.2s;
 }
@@ -128,31 +123,70 @@ nav {
   margin-left: 3px;
 }
 
-@media (max-width: 992px) {
-  nav {
-    padding: 0 15px;
-  }
+/* Mobile Navbar */
+.mobile-nav {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .nav-links {
+.scroll-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-nav-content {
+  display: flex;
+  white-space: nowrap;
+  padding: 0 15px;
+}
+
+.mobile-nav .nav-link {
+  display: inline-block;
+  padding: 15px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+}
+
+.mobile-nav .nav-link.active {
+  color: #e31837;
+}
+
+.mobile-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e31837;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .desktop-nav {
     display: none;
-  }
-
-  .mobile-menu-toggle {
-    display: block;
   }
 }
 
-@media (max-width: 576px) {
-  .login-btn {
+@media screen and (min-width: 769px) {
+  .mobile-nav {
     display: none;
   }
+}
 
-  .nav-logo img {
-    height: 30px;
-    margin-right: 0;
-  }
-
-  nav {
-    padding: 0 10px;
+/* Hover effects (desktop only) */
+@media (hover: hover) {
+  .nav-link:hover {
+    color: #e31837;
   }
 }
