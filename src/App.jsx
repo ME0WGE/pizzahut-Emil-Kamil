@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Customize from "./pages/Customize";
 import Checkout from "./pages/Checkout";
 import Thankyou from "./pages/Thankyou";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -11,13 +12,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/checkout/customize/PIZZA/:pizzaId"
-          element={<Customize />}
+          path="/checkout/customize/PIZZA/:id"
+          element={<Customize/>}
         />
         <Route path="/checkout/recap" element={<Checkout />} />
         <Route path="/thankyou" element={<Thankyou />} />
-        {/* Route 404 pour gérer les URLs non valides */}
-        <Route path="*" element={<Home />} />
+     
+        <Route path="*" element={<Error />} />
       </Routes>
     </>
   );

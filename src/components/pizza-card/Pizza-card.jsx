@@ -6,6 +6,8 @@ import { addToPanier } from "../../features/PanierSlice/PanierSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+
 
 export default function PizzaCard() {
   const dispatch = useDispatch();
@@ -33,6 +35,7 @@ export default function PizzaCard() {
           className="card"
           key={index}
           onClick={(e) => handleClick(e, pizza)}>
+            <Link className="lien" to={`/checkout/custimize/${pizza.nom}/:${index}`}>
           <img className="pizza-img" src={pizza.image} alt={pizza.nom} />
           <div className="card-body">
             <h5 className="card-title">{pizza.nom}</h5>
@@ -42,11 +45,13 @@ export default function PizzaCard() {
             <p className="card-prix">
               à partir de <span className="prix">€{pizza.prix}</span>
             </p>
-            <button onClick={(e) => handleClick(e, pizza)} className="add-btn">
+           <Link className="lien" to={`/checkout/custimize/PIZZA/:${pizza.name}`}> <button onClick={(e) => handleClick(e, pizza)} className="add-btn">
               <FontAwesomeIcon icon={faPlus} className="plus" />
-            </button>
+            </button></Link>
           </div>
+           </Link>
         </div>
+       
       ))}
     </div>
   );
