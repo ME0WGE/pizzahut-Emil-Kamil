@@ -44,7 +44,7 @@ export default function PizzaCard() {
           </div>
           <div className="card-footer">
             <p className="card-prix">
-              à partir de <span className="prix">€{pizza.prix}</span>
+              à partir de <span className="prix">€{pizza.prix.toFixed(2) }</span>
             </p>
            <Link className="lien" to={`/checkout/${pizza.nom}`}> <button onClick={(e) => handleClick(e, pizza)} className="add-btn">
               <FontAwesomeIcon icon={faPlus} className="plus" />

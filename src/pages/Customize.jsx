@@ -31,14 +31,14 @@ return(
            <div className="pizza-customize">
             <div className="custom-header">
               <h1>{pizza.nom}</h1>
-              <p>€{pizza.prix} </p>
+              <p>€{pizza.prix.toFixed(2) } </p>
             </div>
               
               <p className="description">{pizza.description} </p>
               <div className="supplements">
               <div className="ingredients">
                 <h3>Ingrédients</h3>
-                    <ul style={{listStyle:"none"}}>
+                    <ul  style={{listStyle:"none"}}>
                       {ingredients.map((item,index)=>{
                        return <div>
                            <li key={index} className="ingredient"> <p className="ingr-nom">{item}</p>  
@@ -55,8 +55,14 @@ return(
                     </ul>
                     
               </div>
-              <Link></Link>
+             
               </div>
+                       <Link to={"/"}> <button className="button-ajout">
+                      <div className="ajouter">
+                        <span>Ajouter au panier</span>
+                        <span>€{pizza.prix.toFixed(2) }</span>
+                      </div>
+                </button></Link>
            </div>
           </div>
     

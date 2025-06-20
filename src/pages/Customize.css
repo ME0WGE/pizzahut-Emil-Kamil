@@ -80,10 +80,31 @@
     margin-left: -20px;
 }
 .supplements{
-    height: 300px;
+    height: 400px;
 }
 .custom-modif{
     display: flex;
     justify-content: space-between;
     gap:10px
+}
+.button-ajout{
+    width: 380px;
+    height: 50px;
+    border-radius: 7px;
+    border: none;
+    background-color: #70A401;
+    color: white;
+    font-size: 18px;
+    transition: 250ms ease;
+    
+}
+.ajouter{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.button-ajout:hover{
+    background-color: #4C6F01
 }
