@@ -45,7 +45,7 @@ export default function PizzaCard() {
             <p className="card-prix">
               à partir de <span className="prix">€{pizza.prix}</span>
             </p>
-           <Link className="lien" to={`/checkout/custimize/PIZZA/:${pizza.name}`}> <button onClick={(e) => handleClick(e, pizza)} className="add-btn">
+           <Link className="lien" to={`/checkout/:${pizza.nom}`}> <button onClick={(e) => handleClick(e, pizza)} className="add-btn">
               <FontAwesomeIcon icon={faPlus} className="plus" />
             </button></Link>
           </div>

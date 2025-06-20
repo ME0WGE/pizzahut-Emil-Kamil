@@ -4,7 +4,7 @@ export default function Customize() {
 
   return(
     <>
-      <h1>vjr</h1>
+      .customize
       
     </>
   )
