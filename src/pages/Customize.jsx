@@ -10,8 +10,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux"; 
 import { addToPanier } from "../features/panierslice/panierSlice"; 
+import { useState } from "react";
+
 
 export default function Customize() {
+  const [quantite,setQuantite]=useState(1)
   const { id } = useParams();
   const dispatch = useDispatch(); 
   const pizza = data.find((item) => item.nom === id);
@@ -75,11 +78,11 @@ export default function Customize() {
                         <li className="ingredient">
                           <p className="ingr-nom">{item}</p>
                           <div className="custom-modif">
-                            <span>
-                              <FontAwesomeIcon icon={faMinus} />
+                            <span onClick={()=>{quantite>0 && setQuantite(quantite-1)}}>
+                              <FontAwesomeIcon icon={faMinus}  />
                             </span>
-                            <p className="count">1</p>
-                            <span>
+                            <p className="count">{quantite}</p>
+                            <span  onClick={()=>{quantite <2 && setQuantite(quantite+1)}}>
                               <FontAwesomeIcon icon={faPlus} />
                             </span>
                           </div>

@@ -79,6 +79,11 @@
   padding: 3px 6px;
   text-align: center;
   position: relative;
+
+}
+.ingredient span:hover{
+    cursor: pointer;
+    opacity: 0.8;
 }
 .ingredient span:last-of-type{
     background-color: #70A401;
