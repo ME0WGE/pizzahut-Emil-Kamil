@@ -1,39 +1,62 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import data from "../data.json";
 import "./Customize.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   faChevronLeft,
   faMinus,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux"; // Ajout de useDispatch
+import { addToPanier } from "../features/panierslice/panierSlice"; // Ajustez le chemin selon votre structure
 
 export default function Customize() {
   const { id } = useParams();
+  const dispatch = useDispatch(); // Initialisation de dispatch
   const pizza = data.find((item) => item.nom === id);
+  const panier = useSelector((state) => state.panier);
+  const navigate=useNavigate();
   console.log(pizza);
   console.log(id);
+  console.log(panier);
+
+  if (!pizza) {
+    return <div>Pizza non trouvée</div>;
+  }
+
   const ingredients = pizza.ingredients;
+  
   const calculateTotal = () => {
     return panier
       .reduce((total, item) => total + item.prix * item.quantite, 0)
       .toFixed(2);
   };
-  const panier = useSelector((state) => state.panier);
-  console.log(panier);
+
+  const handleAddToPanier = (e, pizza) => {
+    e.preventDefault();
+    dispatch(
+      addToPanier({
+        nom: pizza.nom,
+        prix: pizza.prix,
+        image: pizza.image,
+        id: Date.now(),
+      })
+    );
+    navigate("/"); 
+  };
 
   return (
     <>
       <section id="customize">
-        <div className="retour">
+        <Link to="/" className="retour">
           <FontAwesomeIcon className="fleche" icon={faChevronLeft} />
           <p>Retour</p>
-        </div>
+        </Link>
 
         <div className="customize-container">
           <div className="customize-image">
-            <img className="customize-image" src={pizza.image} alt="" />
+            <img className="customize-image" src={pizza.image} alt={pizza.nom} />
           </div>
           <div className="pizza-customize">
             <div className="custom-header">
@@ -48,9 +71,8 @@ export default function Customize() {
                 <ul style={{ listStyle: "none" }}>
                   {ingredients.map((item, index) => {
                     return (
-                      <div>
-                        <li key={index} className="ingredient">
-                          {" "}
+                      <div key={index}>
+                        <li className="ingredient">
                           <p className="ingr-nom">{item}</p>
                           <div className="custom-modif">
                             <span>
@@ -68,34 +90,39 @@ export default function Customize() {
                 </ul>
               </div>
             </div>
-            <Link to={"/"}>
-              {" "}
-              <button className="button-ajout">
+            
+            {/* Option 1: Bouton qui ajoute au panier ET redirige */}
+            
+              <button className="button-ajout" onClick={(e) => handleAddToPanier(e, pizza)}>
                 <div className="ajouter">
                   <span>Ajouter au panier</span>
                   <span>€{pizza.prix.toFixed(2)}</span>
                 </div>
               </button>
-            </Link>
+   
+   
+
           </div>
-          <div className="panier-container">
-            <h2 className="panier-titre">Panier d'achat</h2>
-            <div className="panier-pizza-container">
-              {/* Pizza Item */}
+          
+          <div className="custom-panier-container">
+            <h2 className="custom-panier-titre">Panier d'achat</h2>
+            <div className="custom-panier-pizza-container">
               {panier.length === 0 ? (
                 <p className="vide">Votre panier est vide</p>
               ) : (
                 panier.map((item, index) => (
-                  <div className="pizza-info-container" key={index}>
+                  <div className="custom-pizza-info-container" key={index}>
                     <div className="pizza-info">
-                      <h4>{item.nom}</h4>
-                      <h6 className="panier-prix">€{item.prix}</h6>
+                      <h4 style={{fontSize:"15px"}}>{item.nom}</h4>
+                      <h6 style={{fontSize:"14px"}} className="panier-prix">
+                        €{item.prix.toFixed(2)}
+                      </h6>
                     </div>
                   </div>
                 ))
               )}
             </div>
-            <div className="total">
+            <div className="custom-total">
               <h3>Total</h3>
               <h6 className="panier-prix">€{calculateTotal()}</h6>
             </div>

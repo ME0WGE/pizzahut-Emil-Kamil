@@ -29,8 +29,8 @@ export default function PizzaCard() {
         <div
           className="card"
           key={index}
-          onClick={(e) => handleAddToPanier(e, pizza)}>
-          <Link className="lien" to={`/checkout/${pizza.nom}`}>
+          >
+          <Link className="lien" to={`/customise/${pizza.nom}`}>
             <img className="pizza-img" src={pizza.image} alt={pizza.nom} />
             <div className="card-body">
               <h5 className="card-title">{pizza.nom}</h5>

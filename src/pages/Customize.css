@@ -2,6 +2,7 @@
 
     margin-left: 210px;
     width: 850px;
+    
 }
 
 .retour{
@@ -22,6 +23,7 @@
 .customize-container{
     display: flex;
     
+    
 
 }
 .fleche{font-size: 14px;}
@@ -40,7 +42,8 @@
     background-color: #FFFFFF;
     max-width: 440px;
     width: 100% ;
-    height: 545px;
+    height: 575px;
+
 }
 .custom-header{
     display: flex;
@@ -112,4 +115,60 @@
 }
 .button-ajout:hover{
     background-color: #4C6F01
+}
+.custom-panier-pizza-container {
+  display: flex;
+  height: 210px;
+  flex-direction: column;
+  overflow-y: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.custom-panier-container {
+  background-color: #ffffff;
+  padding-top: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 3px;
+  width: 500px;
+  height: 280px;
+  box-shadow: 0px 0px 1px black;
+  border: none;
+  margin-left: 30px;
+}
+.custom-pizza-info-container {
+  border-top: 1px rgba(0, 0, 0, 0.304) dashed;
+  border-bottom: 1px rgba(0, 0, 0, 0.3) dashed;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.custom-panier-titre{
+    margin-left: 0;
+    font-size: 20px;
+}
+.custom-panier-pizza-container {
+  display: flex;
+  height: 154px;
+  flex-direction: column;
+  overflow-y: auto;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+.custom-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F5F7F9;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 50px;
+  padding-bottom: 2px;
+  width: 200px;
+  margin-top: 18px;
 }
