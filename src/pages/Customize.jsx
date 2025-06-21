@@ -44,6 +44,7 @@ export default function Customize() {
         prix: pizza.prix,
         image: pizza.image,
         id: Date.now(),
+        ingr:quantite,
       })
     );
     navigate("/"); 

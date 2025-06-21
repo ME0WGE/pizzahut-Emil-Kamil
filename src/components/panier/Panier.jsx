@@ -50,11 +50,14 @@ export default function Panier() {
           ) : (
             panier.map((item, index) => (
               <div className="pizza-info-container" key={index}>
-                <div className="pizza-info">
+                <div className="pizza-header">
+                  <div className="pizza-info">
                   <h4>{item.nom}</h4>
-                  <h6 className="panier-prix">€{item.prix}</h6>
+                  <h6 className="panier-prix">€{item.prix.toFixed(2)}</h6>
+                </div>  
+                
                 </div>
-
+                
                 <div className="changements-pizza">
                   <span
                     style={{ cursor: "pointer" }}
