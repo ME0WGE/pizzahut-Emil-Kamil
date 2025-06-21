@@ -8,12 +8,12 @@ import {
   faMinus,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
-import { useSelector, useDispatch } from "react-redux"; // Ajout de useDispatch
-import { addToPanier } from "../features/panierslice/panierSlice"; // Ajustez le chemin selon votre structure
+import { useSelector, useDispatch } from "react-redux"; 
+import { addToPanier } from "../features/panierslice/panierSlice"; 
 
 export default function Customize() {
   const { id } = useParams();
-  const dispatch = useDispatch(); // Initialisation de dispatch
+  const dispatch = useDispatch(); 
   const pizza = data.find((item) => item.nom === id);
   const panier = useSelector((state) => state.panier);
   const navigate=useNavigate();
