@@ -91,7 +91,8 @@ export default function Customize() {
               </div>
             </div>
             
-            {/* Option 1: Bouton qui ajoute au panier ET redirige */}
+          
+          
             
               <button className="button-ajout" onClick={(e) => handleAddToPanier(e, pizza)}>
                 <div className="ajouter">
