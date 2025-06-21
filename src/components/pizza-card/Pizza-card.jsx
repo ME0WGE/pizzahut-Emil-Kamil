@@ -10,18 +10,7 @@ import { Link } from "react-router-dom";
 export default function PizzaCard() {
   const dispatch = useDispatch();
 
-  const handleAddToPanier = (e, pizza) => {
-    e.preventDefault();
-    e.stopPropagation();
-    dispatch(
-      addToPanier({
-        nom: pizza.nom,
-        prix: pizza.prix,
-        image: pizza.image,
-        id: Date.now(),
-      })
-    );
-  };
+ 
 
   return (
     <div className="pizza-container">
