@@ -1,18 +1,29 @@
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Panier.css";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-
 import { useDispatch, useSelector } from "react-redux";
 import {
   decreaseQuantity,
   increaseQuantity,
   removeFromPanier,
 } from "../../features/PanierSlice/PanierSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Panier() {
+  const [isMobile, setIsMobile] = useState(
+    window.matchMedia("(max-width: 768px)").matches
+  );
   const panier = useSelector((state) => state.panier);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const handleResize = () => setIsMobile(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handleResize);
+    return () => mediaQuery.removeEventListener("change", handleResize);
+  }, []);
 
   const handleRemoveItem = (index) => {
     dispatch(removeFromPanier(index));
@@ -27,8 +38,7 @@ export default function Panier() {
   };
 
   const calculatequantite = (array) => {
-    const somme = array.reduce((a, b) => a + b.quantite, 0);
-    return somme;
+    return array.reduce((a, b) => a + b.quantite, 0);
   };
   const calculateTotal = () => {
     return panier
@@ -36,12 +46,33 @@ export default function Panier() {
       .toFixed(2);
   };
 
+  if (isMobile) {
+    return (
+      <div style={{ width: "100%" }}>
+        <Link
+          to="/checkout"
+          className={panier.length === 0 ? "disabled-link" : ""}>
+          <button
+            className={`button-commander ${
+              panier.length === 0 ? "disabled" : ""
+            }`}
+            disabled={panier.length === 0}>
+            <div className="commander">
+              <span className="quantité">{calculatequantite(panier)}</span>
+              <span>Commander</span>
+              <span>{calculateTotal()} €</span>
+            </div>
+          </button>
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="panier-container">
         <h2 className="panier-titre">Panier d'achat</h2>
         <div className="panier-pizza-container">
-          {/* Pizza Item */}
           {panier.length === 0 ? (
             <p className="vide">Votre panier est vide</p>
           ) : (
@@ -51,11 +82,10 @@ export default function Panier() {
                   <div className="pizza-info">
                     <div style={{ display: "flex", flexDirection: "column" }}>
                       <h4 style={{ marginBottom: "0" }}>{item.nom}</h4>
-                      {/* Affiche la mention "sans ..." si des ingrédients sont à 0 */}
                       {item.ingr && Object.values(item.ingr).includes(0) && (
-                        <div className="sans-ingredients">
+                        <div style={{ fontSize: "15px" }}>
                           <span>
-                            sans{" "}
+                            <span className="sans-ingredients">sans </span>
                             {Object.entries(item.ingr)
                               .filter(([_, x]) => x === 0)
                               .map(([ing]) => ing)
@@ -67,7 +97,6 @@ export default function Panier() {
                     <h6 className="panier-prix">€{item.prix.toFixed(2)}</h6>
                   </div>
                 </div>
-
                 <div className="changements-pizza">
                   <span
                     style={{ cursor: "pointer" }}
@@ -80,7 +109,10 @@ export default function Panier() {
                     onClick={() => handleIncreaseQuantity(index)}>
                     <FontAwesomeIcon icon={faPlus} />
                   </span>
-                  <h6 className="modif" style={{ cursor: "pointer" }}>
+                  <h6
+                    className="modif"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => navigate(`/customise/${item.nom}`)}>
                     Modifier
                   </h6>
                   <h6
@@ -98,7 +130,6 @@ export default function Panier() {
           <h3>Total</h3>
           <h6 className="panier-prix">€{calculateTotal()}</h6>
         </div>
-
         <Link
           to="/checkout"
           className={panier.length === 0 ? "disabled-link" : ""}>
@@ -108,8 +139,8 @@ export default function Panier() {
             }`}
             disabled={panier.length === 0}>
             <div className="commander">
-              <span className="quantité"> {calculatequantite(panier)} </span>
-              <span>Commander </span>
+              <span className="quantité">{calculatequantite(panier)}</span>
+              <span>Commander</span>
               <span>{calculateTotal()} €</span>
             </div>
           </button>
