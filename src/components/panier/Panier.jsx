@@ -9,14 +9,11 @@ import {
   removeFromPanier,
 } from "../../features/PanierSlice/PanierSlice";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 
 export default function Panier() {
   const panier = useSelector((state) => state.panier);
   const dispatch = useDispatch();
-  useEffect(() => {
-    console.log(panier);
-  }, [panier]);
+
   const handleRemoveItem = (index) => {
     dispatch(removeFromPanier(index));
   };

@@ -1,24 +1,15 @@
 import data from "../../data.json";
 import "./pizzaCard.css";
 
-import { useDispatch } from "react-redux";
-import { addToPanier } from "../../features/PanierSlice/PanierSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export default function PizzaCard() {
-  const dispatch = useDispatch();
-
- 
-
   return (
     <div className="pizza-container">
       {data.map((pizza, index) => (
-        <div
-          className="card"
-          key={index}
-          >
+        <div className="card" key={index}>
           <Link className="lien" to={`/customise/${pizza.nom}`}>
             <img className="pizza-img" src={pizza.image} alt={pizza.nom} />
             <div className="card-body">
