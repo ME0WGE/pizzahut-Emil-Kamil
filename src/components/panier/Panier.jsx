@@ -60,7 +60,7 @@ export default function Panier() {
                           <span>
                             sans{" "}
                             {Object.entries(item.ingr)
-                              .filter(([_, q]) => q === 0)
+                              .filter(([_, x]) => x === 0)
                               .map(([ing]) => ing)
                               .join(", ")}
                           </span>

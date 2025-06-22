@@ -7,6 +7,7 @@ import {
   faChevronLeft,
   faMinus,
   faPlus,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -15,14 +16,18 @@ import { addToPanier } from "../features/PanierSlice/PanierSlice";
 
 export default function Customize() {
   const [quantites, setQuantites] = useState({});
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
   const { id } = useParams();
   const dispatch = useDispatch();
   const pizza = data.find((item) => item.nom === id);
   const panier = useSelector((state) => state.panier);
   const navigate = useNavigate();
-  // console.log(pizza);
-  // console.log(id);
-  // console.log(panier);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 600);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   if (!pizza) {
     return <div>Pizza non trouvée</div>;
@@ -45,7 +50,6 @@ export default function Customize() {
       .toFixed(2);
   };
 
-  // Pour l'ajout au panier, tu peux adapter selon ton besoin
   const handleAddToPanier = (e, pizza) => {
     e.preventDefault();
     dispatch(
@@ -54,7 +58,7 @@ export default function Customize() {
         prix: pizza.prix,
         image: pizza.image,
         id: Date.now(),
-        ingr: quantites, // On envoie toutes les quantités d'ingrédients
+        ingr: quantites,
       })
     );
     navigate("/");
@@ -70,10 +74,22 @@ export default function Customize() {
   return (
     <>
       <section id="customize">
-        <Link to="/" className="retour">
-          <FontAwesomeIcon className="fleche" icon={faChevronLeft} />
-          <p>Retour</p>
-        </Link>
+        {/* Barre mobile */}
+        {isMobile ? (
+          <div className="custom-mobile-bar">
+            <div className="custom-mobile-title">{pizza.nom}</div>
+            <button
+              className="custom-mobile-close"
+              onClick={() => navigate("/")}>
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+          </div>
+        ) : (
+          <Link to="/" className="retour">
+            <FontAwesomeIcon className="fleche" icon={faChevronLeft} />
+            <p>Retour</p>
+          </Link>
+        )}
 
         <div className="customize-container">
           <div className="customize-image">
