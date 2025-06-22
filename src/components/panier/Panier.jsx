@@ -50,7 +50,7 @@ export default function Panier() {
     return (
       <div style={{ width: "100%" }}>
         <Link
-          to="/checkout"
+          to="/panier-mobile"
           className={panier.length === 0 ? "disabled-link" : ""}>
           <button
             className={`button-commander ${
@@ -82,6 +82,14 @@ export default function Panier() {
                   <div className="pizza-info">
                     <div style={{ display: "flex", flexDirection: "column" }}>
                       <h4 style={{ marginBottom: "0" }}>{item.nom}</h4>
+                      <span
+                        style={{
+                          fontSize: "13px",
+                          color: "#888",
+                          marginBottom: "2px",
+                        }}>
+                        Medium Classic
+                      </span>
                       {item.ingr && Object.values(item.ingr).includes(0) && (
                         <div style={{ fontSize: "15px" }}>
                           <span>

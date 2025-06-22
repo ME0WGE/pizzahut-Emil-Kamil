@@ -37,12 +37,13 @@ export default function Customize() {
 
   // Initialiser les quantités à 1 pour chaque ingrédient au premier rendu
   useEffect(() => {
+    if (!ingredients) return;
     const initial = {};
     ingredients.forEach((item) => {
       initial[item] = 1;
     });
     setQuantites(initial);
-  }, [pizza]);
+  }, [ingredients]);
 
   const calculateTotal = () => {
     return panier
@@ -59,6 +60,7 @@ export default function Customize() {
         image: pizza.image,
         id: Date.now(),
         ingr: quantites,
+        quantite: 1,
       })
     );
     navigate("/");

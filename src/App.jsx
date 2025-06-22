@@ -6,6 +6,7 @@ import Checkout from "./pages/Checkout";
 import Thankyou from "./pages/Thankyou";
 import Error from "./pages/Error";
 import Layout from "./layout/Layout";
+import PanierMobile from "./pages/PanierMobile";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/customise/:id" element={<Customize />} />
           <Route path="/checkout/" element={<Checkout />} />
           <Route path="/thank-you" element={<Thankyou />} />
+          <Route path="/panier-mobile" element={<PanierMobile />} />
 
           <Route path="*" element={<Error />} />
         </Route>
