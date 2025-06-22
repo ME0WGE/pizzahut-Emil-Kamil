@@ -8,29 +8,28 @@ import {
   faMinus,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
-import { useSelector, useDispatch } from "react-redux"; 
+import { useSelector, useDispatch } from "react-redux";
 
 import { useState } from "react";
 import { addToPanier } from "../features/PanierSlice/PanierSlice";
 
-
 export default function Customize() {
-  const [quantite,setQuantite]=useState(1)
+  const [quantite, setQuantite] = useState(1);
   const { id } = useParams();
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
   const pizza = data.find((item) => item.nom === id);
   const panier = useSelector((state) => state.panier);
-  const navigate=useNavigate();
-  console.log(pizza);
-  console.log(id);
-  console.log(panier);
+  const navigate = useNavigate();
+  // console.log(pizza);
+  // console.log(id);
+  // console.log(panier);
 
   if (!pizza) {
     return <div>Pizza non trouvée</div>;
   }
 
   const ingredients = pizza.ingredients;
-  
+
   const calculateTotal = () => {
     return panier
       .reduce((total, item) => total + item.prix * item.quantite, 0)
@@ -45,10 +44,10 @@ export default function Customize() {
         prix: pizza.prix,
         image: pizza.image,
         id: Date.now(),
-        ingr:quantite,
+        ingr: quantite,
       })
     );
-    navigate("/"); 
+    navigate("/");
   };
 
   return (
@@ -61,7 +60,11 @@ export default function Customize() {
 
         <div className="customize-container">
           <div className="customize-image">
-            <img className="customize-image" src={pizza.image} alt={pizza.nom} />
+            <img
+              className="customize-image"
+              src={pizza.image}
+              alt={pizza.nom}
+            />
           </div>
           <div className="pizza-customize">
             <div className="custom-header">
@@ -80,11 +83,17 @@ export default function Customize() {
                         <li className="ingredient">
                           <p className="ingr-nom">{item}</p>
                           <div className="custom-modif">
-                            <span onClick={()=>{quantite>0 && setQuantite(quantite-1)}}>
-                              <FontAwesomeIcon icon={faMinus}  />
+                            <span
+                              onClick={() => {
+                                quantite > 0 && setQuantite(quantite - 1);
+                              }}>
+                              <FontAwesomeIcon icon={faMinus} />
                             </span>
                             <p className="count">{quantite}</p>
-                            <span  onClick={()=>{quantite <2 && setQuantite(quantite+1)}}>
+                            <span
+                              onClick={() => {
+                                quantite < 2 && setQuantite(quantite + 1);
+                              }}>
                               <FontAwesomeIcon icon={faPlus} />
                             </span>
                           </div>
@@ -95,21 +104,17 @@ export default function Customize() {
                 </ul>
               </div>
             </div>
-            
-          
-          
-            
-              <button className="button-ajout" onClick={(e) => handleAddToPanier(e, pizza)}>
-                <div className="ajouter">
-                  <span>Ajouter au panier</span>
-                  <span>€{pizza.prix.toFixed(2)}</span>
-                </div>
-              </button>
-   
-   
 
+            <button
+              className="button-ajout"
+              onClick={(e) => handleAddToPanier(e, pizza)}>
+              <div className="ajouter">
+                <span>Ajouter au panier</span>
+                <span>€{pizza.prix.toFixed(2)}</span>
+              </div>
+            </button>
           </div>
-          
+
           <div className="custom-panier-container">
             <h2 className="custom-panier-titre">Panier d'achat</h2>
             <div className="custom-panier-pizza-container">
@@ -119,8 +124,8 @@ export default function Customize() {
                 panier.map((item, index) => (
                   <div className="custom-pizza-info-container" key={index}>
                     <div className="pizza-info">
-                      <h4 style={{fontSize:"15px"}}>{item.nom}</h4>
-                      <h6 style={{fontSize:"14px"}} className="panier-prix">
+                      <h4 style={{ fontSize: "15px" }}>{item.nom}</h4>
+                      <h6 style={{ fontSize: "14px" }} className="panier-prix">
                         €{item.prix.toFixed(2)}
                       </h6>
                     </div>
