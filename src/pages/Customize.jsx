@@ -9,8 +9,9 @@ import {
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux"; 
-import { addToPanier } from "../features/panierslice/panierSlice"; 
+
 import { useState } from "react";
+import { addToPanier } from "../features/PanierSlice/PanierSlice";
 
 
 export default function Customize() {
