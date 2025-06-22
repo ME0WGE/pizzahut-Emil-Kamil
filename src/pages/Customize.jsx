@@ -10,11 +10,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { addToPanier } from "../features/PanierSlice/PanierSlice";
 
 export default function Customize() {
-  const [quantite, setQuantite] = useState(1);
+  const [quantites, setQuantites] = useState({});
   const { id } = useParams();
   const dispatch = useDispatch();
   const pizza = data.find((item) => item.nom === id);
@@ -30,12 +30,22 @@ export default function Customize() {
 
   const ingredients = pizza.ingredients;
 
+  // Initialiser les quantités à 1 pour chaque ingrédient au premier rendu
+  useEffect(() => {
+    const initial = {};
+    ingredients.forEach((item) => {
+      initial[item] = 1;
+    });
+    setQuantites(initial);
+  }, [pizza]);
+
   const calculateTotal = () => {
     return panier
       .reduce((total, item) => total + item.prix * item.quantite, 0)
       .toFixed(2);
   };
 
+  // Pour l'ajout au panier, tu peux adapter selon ton besoin
   const handleAddToPanier = (e, pizza) => {
     e.preventDefault();
     dispatch(
@@ -44,10 +54,17 @@ export default function Customize() {
         prix: pizza.prix,
         image: pizza.image,
         id: Date.now(),
-        ingr: quantite,
+        ingr: quantites, // On envoie toutes les quantités d'ingrédients
       })
     );
     navigate("/");
+  };
+
+  const changeQuantite = (item, nb) => {
+    setQuantites((prev) => ({
+      ...prev,
+      [item]: Math.max(0, Math.min(2, (prev[item] ?? 1) + nb)),
+    }));
   };
 
   return (
@@ -77,30 +94,20 @@ export default function Customize() {
               <div className="ingredients">
                 <h3>Ingrédients</h3>
                 <ul style={{ listStyle: "none" }}>
-                  {ingredients.map((item, index) => {
-                    return (
-                      <div key={index}>
-                        <li className="ingredient">
-                          <p className="ingr-nom">{item}</p>
-                          <div className="custom-modif">
-                            <span
-                              onClick={() => {
-                                quantite > 0 && setQuantite(quantite - 1);
-                              }}>
-                              <FontAwesomeIcon icon={faMinus} />
-                            </span>
-                            <p className="count">{quantite}</p>
-                            <span
-                              onClick={() => {
-                                quantite < 2 && setQuantite(quantite + 1);
-                              }}>
-                              <FontAwesomeIcon icon={faPlus} />
-                            </span>
-                          </div>
-                        </li>
+                  {ingredients.map((ing) => (
+                    <li className="ingredient" key={ing}>
+                      <p className="ingr-nom">{ing}</p>
+                      <div className="custom-modif">
+                        <span onClick={() => changeQuantite(ing, -1)}>
+                          <FontAwesomeIcon icon={faMinus} />
+                        </span>
+                        <p className="count">{quantites[ing] ?? 1}</p>
+                        <span onClick={() => changeQuantite(ing, 1)}>
+                          <FontAwesomeIcon icon={faPlus} />
+                        </span>
                       </div>
-                    );
-                  })}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

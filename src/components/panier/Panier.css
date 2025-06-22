@@ -177,3 +177,10 @@
     margin-right: auto;
   }
 }
+
+.sans-ingredients {
+  font-size: 13px;
+  color: #e31837;
+  font-style: italic;
+  margin-bottom: 2px;
+}

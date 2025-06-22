@@ -52,12 +52,25 @@ export default function Panier() {
               <div className="pizza-info-container" key={index}>
                 <div className="pizza-header">
                   <div className="pizza-info">
-                  <h4>{item.nom}</h4>
-                  <h6 className="panier-prix">€{item.prix.toFixed(2)}</h6>
-                </div>  
-                
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <h4 style={{ marginBottom: "0" }}>{item.nom}</h4>
+                      {/* Affiche la mention "sans ..." si des ingrédients sont à 0 */}
+                      {item.ingr && Object.values(item.ingr).includes(0) && (
+                        <div className="sans-ingredients">
+                          <span>
+                            sans{" "}
+                            {Object.entries(item.ingr)
+                              .filter(([_, q]) => q === 0)
+                              .map(([ing]) => ing)
+                              .join(", ")}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    <h6 className="panier-prix">€{item.prix.toFixed(2)}</h6>
+                  </div>
                 </div>
-                
+
                 <div className="changements-pizza">
                   <span
                     style={{ cursor: "pointer" }}
