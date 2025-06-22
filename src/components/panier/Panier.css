@@ -167,14 +167,26 @@
   .panier-container,
   .button-commander {
     width: 100%;
-    max-width: 260px;
+    max-width: 95vw;
     margin-left: auto;
     margin-right: auto;
   }
 
   .button-commander {
-    margin-left: auto;
-    margin-right: auto;
+    position: fixed;
+    left: 0.3rem;
+    right: 0.3rem;
+    bottom: 0.3rem;
+    width: auto;
+    border-radius: 18px;
+    z-index: 2000;
+    margin: 0 auto;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+    height: 50px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

@@ -99,7 +99,7 @@ export default function Navbar() {
           <NavLink to={"/"} className={"link"}>
             Entrées
           </NavLink>
-          <NavLink to={"/"} className={"link"}>
+          <NavLink to={"/"} className={"link pizza-link"}>
             Pizza
           </NavLink>
           <NavLink to={"/"} className={"link"}>

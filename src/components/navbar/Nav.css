@@ -65,28 +65,31 @@ html {
   position: relative;
   transition: all 0.2s;
   white-space: nowrap;
+  display: inline-block;
+  padding-bottom: 4px;
 }
 
 .link:hover {
   opacity: 0.8;
 }
 
-.link[href*="Pizza"],
-.link:nth-child(3) {
+.link.pizza-link {
   font-weight: 600;
   position: relative;
+  display: inline-block;
 }
 
-.link[href*="Pizza"]::after,
-.link:nth-child(3)::after {
+.link.pizza-link::after {
   content: "";
   position: absolute;
-  bottom: 15px;
-  left: 10px;
-  right: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 3px;
-  background-color: white;
-  width: calc(100% - 20px);
+  background: white;
+  width: 100%;
+  display: block;
+  pointer-events: none;
 }
 
 .nav-actions {
