@@ -1,8 +1,7 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import data from "../data.json";
 import "./Customize.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import {
   faChevronLeft,
   faMinus,
@@ -10,18 +9,21 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
-
 import { useState, useEffect } from "react";
-import { addToPanier } from "../features/PanierSlice/PanierSlice";
+import { addToPanier, updatePanier } from "../features/PanierSlice/PanierSlice";
 
 export default function Customize() {
   const [quantites, setQuantites] = useState({});
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
   const { id } = useParams();
-  const dispatch = useDispatch();
-  const pizza = data.find((item) => item.nom === id);
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const editId = params.get("editId");
   const panier = useSelector((state) => state.panier);
+  const pizzaToEdit = panier.find((p) => String(p.id) === String(editId));
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const pizza = data.find((item) => item.nom === id);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 600);
@@ -29,21 +31,21 @@ export default function Customize() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  if (!pizza) {
-    return <div>Pizza non trouvée</div>;
-  }
+  const ingredients = pizza?.ingredients;
 
-  const ingredients = pizza.ingredients;
-
-  // Initialiser les quantités à 1 pour chaque ingrédient au premier rendu
+  // Initialiser les quantités à 1 ou à la valeur du panier si édition
   useEffect(() => {
     if (!ingredients) return;
-    const initial = {};
-    ingredients.forEach((item) => {
-      initial[item] = 1;
-    });
-    setQuantites(initial);
-  }, [ingredients]);
+    if (editId && pizzaToEdit) {
+      setQuantites({ ...pizzaToEdit.ingr });
+    } else {
+      const initial = {};
+      ingredients.forEach((item) => {
+        initial[item] = 1;
+      });
+      setQuantites(initial);
+    }
+  }, [ingredients, editId, pizzaToEdit]);
 
   const calculateTotal = () => {
     return panier
@@ -53,16 +55,28 @@ export default function Customize() {
 
   const handleAddToPanier = (e, pizza) => {
     e.preventDefault();
-    dispatch(
-      addToPanier({
-        nom: pizza.nom,
-        prix: pizza.prix,
-        image: pizza.image,
-        id: Date.now(),
-        ingr: quantites,
-        quantite: 1,
-      })
-    );
+    if (editId && pizzaToEdit) {
+      dispatch(
+        updatePanier({
+          id: pizzaToEdit.id,
+          pizza: {
+            ...pizzaToEdit,
+            ingr: { ...quantites },
+          },
+        })
+      );
+    } else {
+      dispatch(
+        addToPanier({
+          nom: pizza.nom,
+          prix: pizza.prix,
+          image: pizza.image,
+          id: Date.now() + Math.random(),
+          ingr: { ...quantites },
+          quantite: 1,
+        })
+      );
+    }
     navigate("/");
   };
 
@@ -72,6 +86,10 @@ export default function Customize() {
       [item]: Math.max(0, Math.min(2, (prev[item] ?? 1) + nb)),
     }));
   };
+
+  if (!pizza) {
+    return <div>Pizza non trouvée</div>;
+  }
 
   return (
     <>
@@ -134,7 +152,11 @@ export default function Customize() {
               className="button-ajout"
               onClick={(e) => handleAddToPanier(e, pizza)}>
               <div className="ajouter">
-                <span>Ajouter au panier</span>
+                <span>
+                  {editId !== null && pizzaToEdit
+                    ? "Modifier la pizza"
+                    : "Ajouter au panier"}
+                </span>
                 <span>€{pizza.prix.toFixed(2)}</span>
               </div>
             </button>

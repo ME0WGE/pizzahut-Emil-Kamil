@@ -1,7 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { decreaseQuantity, increaseQuantity, removeFromPanier } from "../features/PanierSlice/PanierSlice";
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  removeFromPanier,
+} from "../features/PanierSlice/PanierSlice";
 import { Link, useNavigate } from "react-router-dom";
 import "./PanierMobile.css";
 
@@ -85,14 +89,16 @@ export default function PanierMobile() {
         <Link
           to="/checkout"
           className={panier.length === 0 ? "disabled-link" : ""}
-          style={{ width: "100%" }}
-        >
+          style={{ width: "100%" }}>
           <button
-            className={`panier-mobile-btn ${panier.length === 0 ? "disabled" : ""}`}
-            disabled={panier.length === 0}
-          >
+            className={`panier-mobile-btn ${
+              panier.length === 0 ? "disabled" : ""
+            }`}
+            disabled={panier.length === 0}>
             <div className="panier-mobile-btn-content">
-              <span className="panier-mobile-quantite">{calculatequantite(panier)}</span>
+              <span className="panier-mobile-quantite">
+                {calculatequantite(panier)}
+              </span>
               <span>Commander</span>
               <span>{calculateTotal()} €</span>
             </div>

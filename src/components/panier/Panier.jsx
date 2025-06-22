@@ -108,25 +108,27 @@ export default function Panier() {
                 <div className="changements-pizza">
                   <span
                     style={{ cursor: "pointer" }}
-                    onClick={() => handleDecreaseQuantity(index)}>
+                    onClick={() => handleDecreaseQuantity(item.id)}>
                     <FontAwesomeIcon icon={faMinus} />
                   </span>
                   <h6 className="counter">{item.quantite || 1}</h6>
                   <span
                     style={{ cursor: "pointer" }}
-                    onClick={() => handleIncreaseQuantity(index)}>
+                    onClick={() => handleIncreaseQuantity(item.id)}>
                     <FontAwesomeIcon icon={faPlus} />
                   </span>
                   <h6
                     className="modif"
                     style={{ cursor: "pointer" }}
-                    onClick={() => navigate(`/customise/${item.nom}`)}>
+                    onClick={() =>
+                      navigate(`/customise/${item.nom}?editId=${item.id}`)
+                    }>
                     Modifier
                   </h6>
                   <h6
                     className="supr"
                     style={{ cursor: "pointer" }}
-                    onClick={() => handleRemoveItem(index)}>
+                    onClick={() => handleRemoveItem(item.id)}>
                     Supprimer
                   </h6>
                 </div>

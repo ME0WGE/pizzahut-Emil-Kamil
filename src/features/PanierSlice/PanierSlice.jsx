@@ -7,38 +7,45 @@ export const PanierSlice = createSlice({
   initialState,
   reducers: {
     addToPanier: (state, action) => {
-      // Vérifier si l'article existe déjà (même nom)
       const existingItem = state.find(
-        (item) => item.nom === action.payload.nom
+        (item) =>
+          item.nom === action.payload.nom &&
+          JSON.stringify(item.ingr) === JSON.stringify(action.payload.ingr)
       );
       if (existingItem) {
-        // Si l'article existe, augmenter sa quantité
         existingItem.quantite += 1;
       } else {
-        // Sinon ajouter un nouvel article avec quantité 1
         state.push({
           ...action.payload,
           quantite: 1,
+          id: action.payload.id || Date.now() + Math.random(),
         });
       }
     },
     removeFromPanier: (state, action) => {
-      return state.filter((item, index) => index !== action.payload);
+      return state.filter((item) => item.id !== action.payload);
     },
     increaseQuantity: (state, action) => {
-      const item = state.find((item, index) => index === action.payload);
+      const item = state.find((item) => item.id === action.payload);
       if (item) {
         item.quantite += 1;
       }
     },
     decreaseQuantity: (state, action) => {
-      const item = state.find((item, index) => index === action.payload);
+      const item = state.find((item) => item.id === action.payload);
       if (item && item.quantite > 1) {
         item.quantite -= 1;
       }
     },
     clearPanier: () => {
       return [];
+    },
+    updatePanier: (state, action) => {
+      const { id, pizza } = action.payload;
+      const idx = state.findIndex((item) => item.id === id);
+      if (idx !== -1) {
+        state[idx] = { ...state[idx], ...pizza };
+      }
     },
   },
 });
@@ -49,6 +56,7 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   clearPanier,
+  updatePanier,
 } = PanierSlice.actions;
 
 export const PanierSliceReducer = PanierSlice.reducer;
